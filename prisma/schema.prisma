@@ -1,0 +1,81 @@
+// This is your Prisma schema file,
+// learn more about it in the docs: https://pris.ly/d/prisma-schema
+
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "postgresql"
+  url      = env("DATABASE_URL")
+}
+
+model Administrador {
+  id               Int      @id @default(autoincrement())
+  nombres          String   @db.VarChar(60)
+  apellidos        String   @db.VarChar(60)
+  fecha_nacimiento DateTime @db.Date()
+  telefono         String   @db.VarChar(13)
+}
+
+model Tecnico {
+  id                Int                 @id @default(autoincrement())
+  nombres           String              @db.VarChar(60)
+  apellidos         String              @db.VarChar(60)
+  fecha_nacimiento  DateTime            @db.Date()
+  telefono          String              @db.VarChar(13)
+  activo            Boolean             @default(true)
+  TecnicosBitacoras TecnicosBitacoras[]
+}
+
+model Cliente {
+  id               Int           @id @default(autoincrement())
+  nombres          String        @db.VarChar(60)
+  apellidos        String        @db.VarChar(60)
+  fecha_nacimiento DateTime      @db.Date()
+  telefono         String        @db.VarChar(13)
+  domicilio        String        @db.VarChar(100)
+  Dispositivo      Dispositivo[]
+}
+
+model Dispositivo {
+  imei           String     @id
+  modelo         String     @db.VarChar(30)
+  marca          String     @db.VarChar(30)
+  numero_serie   String     @db.VarChar(60)
+  fecha_recibido DateTime   @db.Date()
+  cliente        Cliente    @relation(fields: [id_cliente], references: [id])
+  id_cliente     Int
+  Bitacora       Bitacora[]
+}
+
+model Bitacora {
+  id                    Int                     @id @default(autoincrement())
+  dispositivo           Dispositivo             @relation(fields: [imei_dispositivo], references: [imei])
+  imei_dispositivo      String
+  TecnicosBitacoras     TecnicosBitacoras[]
+  ReparacionesBitacoras ReparacionesBitacoras[]
+}
+
+model ManualReparaciones {
+  id                    Int                     @id @default(autoincrement())
+  titulo                String                  @db.VarChar(100)
+  contenido             String                  @db.Text
+  ReparacionesBitacoras ReparacionesBitacoras[]
+}
+
+model TecnicosBitacoras {
+  id         Int      @id @default(autoincrement())
+  tecnico    Tecnico  @relation(fields: [tecnicoId], references: [id])
+  tecnicoId  Int
+  bitacora   Bitacora @relation(fields: [bitacoraId], references: [id])
+  bitacoraId Int
+}
+
+model ReparacionesBitacoras {
+  id                   Int                @id @default(autoincrement())
+  reparacion           ManualReparaciones @relation(fields: [manualReparacionesId], references: [id])
+  manualReparacionesId Int
+  bitacora             Bitacora           @relation(fields: [bitacoraId], references: [id])
+  bitacoraId           Int
+}
