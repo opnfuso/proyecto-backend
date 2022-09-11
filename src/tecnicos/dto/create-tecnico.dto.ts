@@ -1,13 +1,11 @@
 import {
-  IsBoolean,
-  IsDateString,
-  IsNotEmpty,
-  IsOptional,
-  IsPhoneNumber,
   IsString,
+  IsNotEmpty,
+  IsDateString,
+  IsPhoneNumber,
 } from 'class-validator';
 
-export class CreateAdministradorDto {
+export class CreateTecnicoDto {
   @IsString()
   @IsNotEmpty()
   nombres: string;
@@ -21,8 +19,4 @@ export class CreateAdministradorDto {
 
   @IsPhoneNumber()
   telefono: string;
-
-  @IsOptional()
-  @IsBoolean()
-  activo: boolean;
 }

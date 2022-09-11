@@ -9,7 +9,6 @@ import {
   HttpStatus,
   HttpException,
 } from '@nestjs/common';
-import { NotFoundError } from 'rxjs';
 import { AdministradoresService } from './administradores.service';
 import { CreateAdministradorDto } from './dto/create-administrador.dto';
 import { UpdateAdministradorDto } from './dto/update-administrador.dto';
@@ -18,7 +17,7 @@ import { UpdateAdministradorDto } from './dto/update-administrador.dto';
 export class AdministradoresController {
   constructor(
     private readonly administradoresService: AdministradoresService
-  ) { }
+  ) {}
 
   @Post()
   create(@Body() createAdministradorDto: CreateAdministradorDto) {
