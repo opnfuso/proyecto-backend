@@ -15,10 +15,10 @@ import { UpdateManualReparacionDto } from './dto/update-manual-reparacion.dto';
 export class ManualReparacionesController {
   constructor(
     private readonly manualReparacionesService: ManualReparacionesService
-  ) {}
+  ) { }
 
   @Post()
-  create(@Body() createManualReparacioneDto: CreateManualReparacioneDto) {
+  create(@Body() createManualReparacioneDto: CreateManualReparacionDto) {
     return this.manualReparacionesService.create(createManualReparacioneDto);
   }
 
@@ -35,7 +35,7 @@ export class ManualReparacionesController {
   @Patch(':id')
   update(
     @Param('id') id: string,
-    @Body() updateManualReparacioneDto: UpdateManualReparacioneDto
+    @Body() updateManualReparacioneDto: UpdateManualReparacionDto
   ) {
     return this.manualReparacionesService.update(
       +id,

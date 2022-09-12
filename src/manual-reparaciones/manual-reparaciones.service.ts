@@ -4,7 +4,7 @@ import { UpdateManualReparacionDto } from './dto/update-manual-reparacion.dto';
 
 @Injectable()
 export class ManualReparacionesService {
-  create(createManualReparacioneDto: CreateManualReparacioneDto) {
+  create(createManualReparacioneDto: CreateManualReparacionDto) {
     return 'This action adds a new manualReparacione';
   }
 
@@ -16,7 +16,7 @@ export class ManualReparacionesService {
     return `This action returns a #${id} manualReparacione`;
   }
 
-  update(id: number, updateManualReparacioneDto: UpdateManualReparacioneDto) {
+  update(id: number, updateManualReparacioneDto: UpdateManualReparacionDto) {
     return `This action updates a #${id} manualReparacione`;
   }
 

@@ -3,6 +3,8 @@ import {
   IsNotEmpty,
   IsDateString,
   IsPhoneNumber,
+  IsOptional,
+  IsBoolean,
 } from 'class-validator';
 
 export class CreateTecnicoDto {
@@ -19,4 +21,8 @@ export class CreateTecnicoDto {
 
   @IsPhoneNumber()
   telefono: string;
+
+  @IsOptional()
+  @IsBoolean()
+  activo: boolean;
 }
