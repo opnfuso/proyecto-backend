@@ -39,7 +39,7 @@ model Cliente {
 }
 
 model Dispositivo {
-  imei           BigInt     @id
+  imei           String     @id
   modelo         String     @db.VarChar(30)
   marca          String     @db.VarChar(30)
   numero_serie   String     @db.VarChar(60)
@@ -52,7 +52,7 @@ model Dispositivo {
 model Bitacora {
   id                    Int                     @id @default(autoincrement())
   dispositivo           Dispositivo             @relation(fields: [imei_dispositivo], references: [imei])
-  imei_dispositivo      BigInt
+  imei_dispositivo      String
   fecha_salida          DateTime                @db.Date()
   costo                 Float                   @db.Real()
   notas                 String                  @db.Text()

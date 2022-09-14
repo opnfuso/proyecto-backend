@@ -15,7 +15,7 @@ import { UpdateBitacoraDto } from './dto/update-bitacora.dto';
 
 @Controller('bitacoras')
 export class BitacorasController {
-  constructor(private readonly bitacorasService: BitacorasService) { }
+  constructor(private readonly bitacorasService: BitacorasService) {}
 
   @Post()
   create(@Body() createBitacoraDto: CreateBitacoraDto) {

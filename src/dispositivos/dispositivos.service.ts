@@ -1,26 +1,62 @@
 import { Injectable } from '@nestjs/common';
-import { CreateDispositivoDto } from './dto/create-dispositivo.dto';
-import { UpdateDispositivoDto } from './dto/update-dispositivo.dto';
+import { PrismaService } from '../prisma.service';
+import { Dispositivo, Prisma } from '@prisma/client';
 
 @Injectable()
 export class DispositivosService {
-  create(createDispositivoDto: CreateDispositivoDto) {
-    return 'This action adds a new dispositivo';
+  constructor(private prisma: PrismaService) { }
+
+  dispositivo(
+    dispositivoWhereUniqueInput: Prisma.DispositivoWhereUniqueInput
+  ): Promise<Dispositivo | null> {
+    return this.prisma.dispositivo.findUnique({
+      where: dispositivoWhereUniqueInput,
+    });
   }
 
-  findAll() {
-    return `This action returns all dispositivos`;
+  dispositivos(params: {
+    skip?: number;
+    take?: number;
+    cursor?: Prisma.DispositivoWhereUniqueInput;
+    where?: Prisma.DispositivoWhereInput;
+    orderBy?: Prisma.DispositivoOrderByWithRelationInput;
+  }): Promise<Dispositivo[]> {
+    const { skip, take, cursor, where, orderBy } = params;
+    return this.prisma.dispositivo.findMany({
+      skip,
+      take,
+      cursor,
+      where,
+      include: {
+        cliente: true,
+      },
+      orderBy,
+    });
   }
 
-  findOne(id: number) {
-    return `This action returns a #${id} dispositivo`;
+  createDispositivo(data: Prisma.DispositivoCreateInput): Promise<Dispositivo> {
+    data.fecha_recibido = new Date(data.fecha_recibido);
+    return this.prisma.dispositivo.create({
+      data,
+    });
   }
 
-  update(id: number, updateDispositivoDto: UpdateDispositivoDto) {
-    return `This action updates a #${id} dispositivo`;
+  updateDispositivo(params: {
+    where: Prisma.DispositivoWhereUniqueInput;
+    data: Prisma.DispositivoUpdateInput;
+  }): Promise<Dispositivo> {
+    const { where, data } = params;
+    return this.prisma.dispositivo.update({
+      data,
+      where,
+    });
   }
 
-  remove(id: number) {
-    return `This action removes a #${id} dispositivo`;
+  removeDispositivo(
+    where: Prisma.DispositivoWhereUniqueInput
+  ): Promise<Dispositivo> {
+    return this.prisma.dispositivo.delete({
+      where,
+    });
   }
 }

@@ -27,6 +27,9 @@ export class BitacorasService {
       take,
       cursor,
       where,
+      include: {
+        dispositivo: true,
+      },
       orderBy,
     });
   }

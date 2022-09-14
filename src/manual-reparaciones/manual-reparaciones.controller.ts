@@ -15,7 +15,7 @@ import { UpdateManualReparacionDto } from './dto/update-manual-reparacion.dto';
 export class ManualReparacionesController {
   constructor(
     private readonly manualReparacionesService: ManualReparacionesService
-  ) { }
+  ) {}
 
   @Post()
   create(@Body() createManualReparacioneDto: CreateManualReparacionDto) {

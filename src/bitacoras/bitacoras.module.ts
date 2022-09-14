@@ -7,4 +7,4 @@ import { PrismaService } from 'src/prisma.service';
   controllers: [BitacorasController],
   providers: [BitacorasService, PrismaService],
 })
-export class BitacorasModule { }
+export class BitacorasModule {}

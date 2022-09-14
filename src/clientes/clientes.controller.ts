@@ -6,6 +6,8 @@ import {
   Patch,
   Param,
   Delete,
+  HttpStatus,
+  HttpException,
 } from '@nestjs/common';
 import { ClientesService } from './clientes.service';
 import { CreateClienteDto } from './dto/create-cliente.dto';
@@ -13,30 +15,40 @@ import { UpdateClienteDto } from './dto/update-cliente.dto';
 
 @Controller('clientes')
 export class ClientesController {
-  constructor(private readonly clientesService: ClientesService) {}
+  constructor(private readonly clientesService: ClientesService) { }
 
   @Post()
   create(@Body() createClienteDto: CreateClienteDto) {
-    return this.clientesService.create(createClienteDto);
+    return this.clientesService.createCliente(createClienteDto);
   }
 
   @Get()
-  findAll() {
-    return this.clientesService.findAll();
+  async findAll() {
+    return this.clientesService.clientes({});
   }
 
   @Get(':id')
-  findOne(@Param('id') id: string) {
-    return this.clientesService.findOne(+id);
+  async findOne(@Param('id') id: string) {
+    const cliente = await this.clientesService.cliente({
+      id: Number(id),
+    });
+    if (cliente === null) {
+      throw new HttpException('Not Found', HttpStatus.NOT_FOUND);
+    }
+
+    return cliente;
   }
 
   @Patch(':id')
   update(@Param('id') id: string, @Body() updateClienteDto: UpdateClienteDto) {
-    return this.clientesService.update(+id, updateClienteDto);
+    return this.clientesService.updateCliente({
+      data: updateClienteDto,
+      where: { id: Number(id) },
+    });
   }
 
   @Delete(':id')
   remove(@Param('id') id: string) {
-    return this.clientesService.remove(+id);
+    return this.clientesService.removeCliente({ id: Number(id) });
   }
 }

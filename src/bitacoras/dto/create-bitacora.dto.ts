@@ -2,15 +2,14 @@ import { Prisma } from '@prisma/client';
 import {
   IsBoolean,
   IsDateString,
-  IsInt,
   IsNumber,
   IsOptional,
   IsString,
 } from 'class-validator';
 
 export class CreateBitacoraDto {
-  @IsInt()
-  imei_dispositivo: number;
+  @IsString()
+  imei_dispositivo: string;
 
   @IsDateString()
   fecha_salida: string;
