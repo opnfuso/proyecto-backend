@@ -4,7 +4,7 @@ import { Bitacora, Prisma } from '@prisma/client';
 
 @Injectable()
 export class BitacorasService {
-  constructor(private prisma: PrismaService) { }
+  constructor(private prisma: PrismaService) {}
 
   bitacora(
     bitacoraWhereUniqueInput: Prisma.BitacoraWhereUniqueInput

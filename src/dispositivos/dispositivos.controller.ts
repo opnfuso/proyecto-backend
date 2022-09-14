@@ -15,7 +15,7 @@ import { UpdateDispositivoDto } from './dto/update-dispositivo.dto';
 
 @Controller('dispositivos')
 export class DispositivosController {
-  constructor(private readonly dispositivosService: DispositivosService) { }
+  constructor(private readonly dispositivosService: DispositivosService) {}
 
   @Post()
   create(@Body() createDispositivoDto: CreateDispositivoDto) {

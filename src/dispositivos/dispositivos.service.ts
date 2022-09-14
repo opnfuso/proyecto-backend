@@ -4,7 +4,7 @@ import { Dispositivo, Prisma } from '@prisma/client';
 
 @Injectable()
 export class DispositivosService {
-  constructor(private prisma: PrismaService) { }
+  constructor(private prisma: PrismaService) {}
 
   dispositivo(
     dispositivoWhereUniqueInput: Prisma.DispositivoWhereUniqueInput

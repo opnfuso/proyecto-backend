@@ -4,7 +4,7 @@ import { Cliente, Prisma } from '@prisma/client';
 
 @Injectable()
 export class ClientesService {
-  constructor(private prisma: PrismaService) { }
+  constructor(private prisma: PrismaService) {}
 
   cliente(
     clienteWhereUniqueInput: Prisma.ClienteWhereUniqueInput
