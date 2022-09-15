@@ -7,23 +7,32 @@ import {
   IsString,
 } from 'class-validator';
 
+/**
+ * Clase para hacer la validación al crear las bitacoras
+ */
 export class CreateBitacoraDto {
+  /**Imei del dispositivo que será usado como un id */
   @IsString()
   imei_dispositivo: string;
 
+  /**Fecha de salida del dispositivo al terminar la reparación */
   @IsDateString()
   fecha_salida: string;
 
+  /**Costo final de la reparación */
   @IsNumber()
   costo: number;
 
+  /**Notas opcionales  */
   @IsOptional()
   @IsString()
   notas: string;
 
+  /**Booleano que indica si la reparación está terminada */
   @IsOptional()
   @IsBoolean()
   terminado: boolean;
 
+  /**Dispositivo de la bitacora */
   dispositivo: Prisma.DispositivoCreateNestedOneWithoutBitacoraInput;
 }

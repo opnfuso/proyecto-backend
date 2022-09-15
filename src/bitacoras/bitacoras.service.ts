@@ -4,8 +4,13 @@ import { Bitacora, Prisma } from '@prisma/client';
 
 @Injectable()
 export class BitacorasService {
-  constructor(private prisma: PrismaService) {}
+  constructor(private prisma: PrismaService) { }
 
+  /**
+   * Regresa la bitacora que coincida con el id
+   * @param bitacoraWhereUniqueInput Parametro seguro autogenerado por prisma que obtiene un id
+   * @returns Una bitacora
+   */
   bitacora(
     bitacoraWhereUniqueInput: Prisma.BitacoraWhereUniqueInput
   ): Promise<Bitacora | null> {
