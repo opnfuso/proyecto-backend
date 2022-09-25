@@ -11,7 +11,9 @@ describe('TecnicosBitacorasController', () => {
       providers: [TecnicosBitacorasService],
     }).compile();
 
-    controller = module.get<TecnicosBitacorasController>(TecnicosBitacorasController);
+    controller = module.get<TecnicosBitacorasController>(
+      TecnicosBitacorasController
+    );
   });
 
   it('should be defined', () => {

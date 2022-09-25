@@ -14,7 +14,7 @@ import { CreateReparacionesBitacoraDto } from './dto/create-reparaciones-bitacor
 import { UpdateReparacionesBitacoraDto } from './dto/update-reparaciones-bitacora.dto';
 
 @Controller('reparaciones-bitacoras')
-export class ReparacionesBitacorassBitacorasController {
+export class ReparacionesBitacorasController {
   constructor(
     private readonly reparacionesBitacorassService: ReparacionesBitacorasService
   ) {}

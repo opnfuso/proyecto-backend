@@ -4,6 +4,6 @@ import { TecnicosBitacorasController } from './tecnicos-bitacoras.controller';
 
 @Module({
   controllers: [TecnicosBitacorasController],
-  providers: [TecnicosBitacorasService]
+  providers: [TecnicosBitacorasService],
 })
 export class TecnicosBitacorasModule {}
