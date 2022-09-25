@@ -1,134 +1,116 @@
 [
+  // Que sistema operativo tienes
   {
-    "_id": 1,
     "text": "Software",
-    "pregunta": 1,
-    "siguiente_pregunta": 2
+    "pregunta": "6330c93814ec4e3f89ec49ac",
+    "siguiente_pregunta": "6330c93814ec4e3f89ec49ad"
   },
   {
-    "_id": 2,
+    "text": "Hardware",
+    "pregunta": "6330c93814ec4e3f89ec49ac",
+    "siguiente_pregunta": "6330c93814ec4e3f89ec49b0"
+  },
+  // El dispositivo enciende?
+  {
     "text": "Si",
-    "pregunta": 2,
-    "siguiente_pregunta": 3
+    "pregunta": "6330c93814ec4e3f89ec49ad",
+    "siguiente_pregunta": "6330c93814ec4e3f89ec49ae"
   },
   {
-    "_id": 3,
+    "text": "No",
+    "pregunta": "6330c93814ec4e3f89ec49ad",
+    "siguiente_pregunta": "6330c93814ec4e3f89ec49af"
+  },
+  // Que nota al encender el dispositivo
+  {
     "text": "Se queda trabado en la pantalla de inicio",
-    "pregunta": 3,
-    "siguiente_pregunta": 0
+    "pregunta": "6330c93814ec4e3f89ec49ae"
   },
   {
-    "_id": 4,
     "text": "Tiene bloqueo de cuenta iCloud",
-    "pregunta": 3,
-    "siguiente_pregunta": 0
+    "pregunta": "6330c93814ec4e3f89ec49ae"
   },
   {
-    "_id": 5,
     "text": "Tiene contraseña",
-    "pregunta": 3,
-    "siguiente_pregunta": 0
+    "pregunta": "6330c93814ec4e3f89ec49ae"
   },
   {
-    "_id": 6,
     "text": "Se traba",
-    "pregunta": 3,
-    "siguiente_pregunta": 0
+    "pregunta": "6330c93814ec4e3f89ec49ae"
   },
+  // Si lo conecta a la corriente enciende?
   {
-    "_id": 7,
     "text": "Si",
-    "pregunta": 4,
-    "siguiente_pregunta": 3
+    "pregunta": "6330c93814ec4e3f89ec49af",
+    "siguiente_pregunta": "6330c93814ec4e3f89ec49ae"
   },
   {
-    "_id": 8,
     "text": "No",
-    "pregunta": 2,
-    "siguiente_pregunta": 0
+    "pregunta": "6330c93814ec4e3f89ec49af"
   },
+  // Identifica alguna pieza que no funcione correctamente?
   {
-    "_id": 9,
     "text": "Si",
-    "pregunta": 5,
-    "siguiente_pregunta": 6
+    "pregunta": "6330c93814ec4e3f89ec49b0",
+    "siguiente_pregunta": "6330c93814ec4e3f89ec49b1"
   },
   {
-    "_id": 10,
-    "text": "Display",
-    "pregunta": 6,
-    "siguiente_pregunta": 0
-  },
-  {
-    "_id": 11,
-    "text": "Centro de carga",
-    "pregunta": 6,
-    "siguiente_pregunta": 0
-  },
-  {
-    "_id": 12,
-    "text": "Tapa trasera",
-    "pregunta": 6,
-    "siguiente_pregunta": 0
-  },
-  {
-    "_id": 13,
-    "text": "Cámara",
-    "pregunta": 6,
-    "siguiente_pregunta": 7
-  },
-  {
-    "_id": 14,
-    "text": "Frontal",
-    "pregunta": 7,
-    "siguiente_pregunta": 0
-  },
-  {
-    "_id": 15,
-    "text": "Trasera",
-    "pregunta": 7,
-    "siguiente_pregunta": 0
-  },
-  {
-    "_id": 16,
     "text": "No",
-    "pregunta": 5,
+    "pregunta": "6330c93814ec4e3f89ec49b0",
     "siguiente_pregunta": 8
   },
+  // ¿Qué pieza identifica?
   {
-    "_id": 17,
-    "text": "Si",
-    "pregunta": 8,
-    "siguiente_pregunta": 9
+    "text": "Display",
+    "pregunta": "6330c93814ec4e3f89ec49b1"
   },
   {
-    "_id": 18,
-    "text": "Batería",
-    "pregunta": 9,
-    "siguiente_pregunta": 0
-  },
-  {
-    "_id": 19,
-    "text": "Placa madre",
-    "pregunta": 9,
-    "siguiente_pregunta": 0
-  },
-  {
-    "_id": 20,
-    "text": "Antena de red",
-    "pregunta": 9,
-    "siguiente_pregunta": 0
-  },
-  {
-    "_id": 21,
     "text": "Centro de carga",
-    "pregunta": 9,
-    "siguiente_pregunta": 0
+    "pregunta": "6330c93814ec4e3f89ec49b1"
   },
   {
-    "_id": 22,
+    "text": "Tapa trasera",
+    "pregunta": "6330c93814ec4e3f89ec49b1"
+  },
+  {
+    "text": "Cámara",
+    "pregunta": "6330c93814ec4e3f89ec49b1",
+    "siguiente_pregunta": "6330c93814ec4e3f89ec49b2"
+  },
+  // ¿Qué cámara?
+  {
+    "text": "Frontal",
+    "pregunta": "6330c93814ec4e3f89ec49b2"
+  },
+  {
+    "text": "Trasera",
+    "pregunta": "6330c93814ec4e3f89ec49b2"
+  },
+  // Al abrir el dispositivo, ¿Identifica alguna pieza dañada?
+  {
+    "text": "Si",
+    "pregunta": "6330c93814ec4e3f89ec49b3",
+    "siguiente_pregunta": "6330c93814ec4e3f89ec49b4"
+  },
+  {
     "text": "No",
-    "pregunta": 8,
-    "siguiente_pregunta": 0
+    "pregunta": "6330c93814ec4e3f89ec49b3"
+  },
+  // ¿Qué pieza identifica?
+  {
+    "text": "Batería",
+    "pregunta": "6330c93814ec4e3f89ec49b4"
+  },
+  {
+    "text": "Placa madre",
+    "pregunta": "6330c93814ec4e3f89ec49b4"
+  },
+  {
+    "text": "Antena de red",
+    "pregunta": "6330c93814ec4e3f89ec49b4"
+  },
+  {
+    "text": "Centro de carga",
+    "pregunta": "6330c93814ec4e3f89ec49b4"
   }
 ]

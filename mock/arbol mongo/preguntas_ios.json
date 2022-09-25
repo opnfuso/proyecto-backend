@@ -1,0 +1,56 @@
+[
+  {
+    "_id": {
+      "$oid": "6330c93814ec4e3f89ec49ac"
+    },
+    "text": "Identifica el problema como software o hardware"
+  },
+  {
+    "_id": {
+      "$oid": "6330c93814ec4e3f89ec49ad"
+    },
+    "text": "¿El dispositivo enciende?"
+  },
+  {
+    "_id": {
+      "$oid": "6330c93814ec4e3f89ec49ae"
+    },
+    "text": "¿Qué nota al encender el dispositivo?"
+  },
+  {
+    "_id": {
+      "$oid": "6330c93814ec4e3f89ec49af"
+    },
+    "text": "¿Si lo conecta a la corriente enciende?"
+  },
+  {
+    "_id": {
+      "$oid": "6330c93814ec4e3f89ec49b0"
+    },
+    "text": "¿Identifica alguna pieza que no funcione correctamente?"
+  },
+  {
+    "_id": {
+      "$oid": "6330c93814ec4e3f89ec49b1"
+    },
+    "text": "¿Qué pieza identifica?"
+  },
+  {
+    "_id": {
+      "$oid": "6330c93814ec4e3f89ec49b2"
+    },
+    "text": "¿Qué cámara?"
+  },
+  {
+    "_id": {
+      "$oid": "6330c93814ec4e3f89ec49b3"
+    },
+    "text": "Al abrir el dispositivo, ¿Identifica alguna pieza dañada?"
+  },
+  {
+    "_id": {
+      "$oid": "6330c93814ec4e3f89ec49b4"
+    },
+    "text": "¿Qué pieza identifica?"
+  }
+]

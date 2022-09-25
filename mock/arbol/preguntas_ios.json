@@ -1,38 +1,29 @@
 [
   {
-    "_id": 1,
     "text": "Identifica el problema como software o hardware"
   },
   {
-    "_id": 2,
     "text": "¿El dispositivo enciende?"
   },
   {
-    "_id": 3,
     "text": "¿Qué nota al encender el dispositivo?"
   },
   {
-    "_id": 4,
     "text": "¿Si lo conecta a la corriente enciende?"
   },
   {
-    "_id": 5,
     "text": "¿Identifica alguna que no funcione correctamente?"
   },
   {
-    "_id": 6,
     "text": "¿Qué pieza identifica?"
   },
   {
-    "_id": 7,
     "text": "¿Qué cámara?"
   },
   {
-    "_id": 8,
     "text": "Al abrir el dispositivo, ¿Identifica alguna pieza dañada?"
   },
   {
-    "_id": 9,
     "text": "¿Qué pieza identifica?"
   }
 ]

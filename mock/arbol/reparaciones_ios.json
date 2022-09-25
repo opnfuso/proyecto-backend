@@ -1,121 +1,118 @@
 [
+  // // Que nota al encender el dispositivo
+  // Se queda trabado en la pantalla de inicio
   {
-    "_id": 1,
     "text": "Se recomienda reinstalar el SO",
     "respuesta": 3
   },
   {
-    "_id": 2,
     "text": "Se recomienda un Downgrade de SO",
     "respuesta": 3
   },
+  // Tiene bloqueo de cuenta iCloud
   {
-    "_id": 3,
     "text": "Se recomienda reinstalar el SO",
     "respuesta": 4
   },
   {
-    "_id": 4,
     "text": "Se recomienda desbloquear con PC",
     "respuesta": 4
   },
+  // Tiene contraseña
   {
-    "_id": 5,
     "text": "Se recomienda desbloquear con cuenta iCloud",
     "respuesta": 5
   },
   {
-    "_id": 6,
     "text": "Se recomienda reinstalar el SO",
     "respuesta": 5
   },
   {
-    "_id": 7,
     "text": "Se recomienda un Downgrade de SO",
     "respuesta": 5
   },
+  // Se traba
   {
-    "_id": 8,
     "text": "Se recomienda eliminar el exceso de almacenamiento (Fotos y apps)",
     "respuesta": 6
   },
   {
-    "_id": 9,
     "text": "Se recomienda reinstalar el SO",
     "respuesta": 6
   },
   {
-    "_id": 10,
     "text": "Se recomienda ampliar el almacenamiento de iCloud",
     "respuesta": 6
   },
+  // // Si lo conecta a la corriente enciende?
+  // No
   {
-    "_id": 11,
     "text": "Se recomienda cambio de centro de carga",
     "respuesta": 8
   },
   {
-    "_id": 12,
     "text": "Se recomienda cambiar tarjeta madre",
     "respuesta": 8
   },
+  // // ¿Qué pieza identifica?
+  // Display
   {
-    "_id": 13,
     "text": "Se recomienda cambio de display",
     "respuesta": 10
   },
+  // Centro de carga
   {
-    "_id": 14,
     "text": "Se recomienda cambiar centro de carga",
     "respuesta": 11
   },
+  // Tapa trasera
   {
-    "_id": 14,
     "text": "Se recomienda cambiar tapa trasera",
     "respuesta": 12
   },
+  // // ¿Qué cámara?
+  // Frontal
   {
-    "_id": 15,
     "text": "Se recomienda cambio de cámara frontal",
     "respuesta": 14
   },
+  // Trasera
   {
-    "_id": 16,
     "text": "Se recomienda cambio de cámara trasera",
     "respuesta": 15
   },
+  // // ¿Qué pieza identifica?
+  // Batería
   {
-    "_id": 16,
     "text": "Se recomienda cambio de batería",
     "respuesta": 18
   },
+  // Placa madre
   {
-    "_id": 17,
     "text": "Se recomienda limpieza de tarjeta madre",
     "respuesta": 19
   },
   {
-    "_id": 18,
     "text": "Se recomienda cambio de placa madre",
     "respuesta": 19
   },
+  // Antena de red
   {
-    "_id": 19,
     "text": "Se recomienda reconectar la antena de red",
     "respuesta": 20
   },
   {
-    "_id": 20,
     "text": "Se recomienda cambiar antena de red",
     "respuesta": 20
   },
+  // Centro de carga
   {
-    "_id": 21,
     "text": "Se recomienda cambiar centro de carga",
     "respuesta": 21
   },
+  // // Al abrir el dispositivo, ¿Identifica alguna pieza dañada?
+  // No
   {
-    "_id": 22,
     "text": "Se recomienda cambio de placa madre",
     "respuesta": 22
   }
