@@ -46,5 +46,89 @@
     "text": "No",
     "pregunta": 2,
     "siguiente_pregunta": 0
+  },
+  {
+    "_id": 9,
+    "text": "Si",
+    "pregunta": 5,
+    "siguiente_pregunta": 6
+  },
+  {
+    "_id": 10,
+    "text": "Display",
+    "pregunta": 6,
+    "siguiente_pregunta": 0
+  },
+  {
+    "_id": 11,
+    "text": "Centro de carga",
+    "pregunta": 6,
+    "siguiente_pregunta": 0
+  },
+  {
+    "_id": 12,
+    "text": "Tapa trasera",
+    "pregunta": 6,
+    "siguiente_pregunta": 0
+  },
+  {
+    "_id": 13,
+    "text": "Cámara",
+    "pregunta": 6,
+    "siguiente_pregunta": 7
+  },
+  {
+    "_id": 14,
+    "text": "Frontal",
+    "pregunta": 7,
+    "siguiente_pregunta": 0
+  },
+  {
+    "_id": 15,
+    "text": "Trasera",
+    "pregunta": 7,
+    "siguiente_pregunta": 0
+  },
+  {
+    "_id": 16,
+    "text": "No",
+    "pregunta": 5,
+    "siguiente_pregunta": 8
+  },
+  {
+    "_id": 17,
+    "text": "Si",
+    "pregunta": 8,
+    "siguiente_pregunta": 9
+  },
+  {
+    "_id": 18,
+    "text": "Batería",
+    "pregunta": 9,
+    "siguiente_pregunta": 0
+  },
+  {
+    "_id": 19,
+    "text": "Placa madre",
+    "pregunta": 9,
+    "siguiente_pregunta": 0
+  },
+  {
+    "_id": 20,
+    "text": "Antena de red",
+    "pregunta": 9,
+    "siguiente_pregunta": 0
+  },
+  {
+    "_id": 21,
+    "text": "Centro de carga",
+    "pregunta": 9,
+    "siguiente_pregunta": 0
+  },
+  {
+    "_id": 22,
+    "text": "No",
+    "pregunta": 8,
+    "siguiente_pregunta": 0
   }
 ]

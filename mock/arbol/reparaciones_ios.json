@@ -58,5 +58,65 @@
     "_id": 12,
     "text": "Se recomienda cambiar tarjeta madre",
     "respuesta": 8
+  },
+  {
+    "_id": 13,
+    "text": "Se recomienda cambio de display",
+    "respuesta": 10
+  },
+  {
+    "_id": 14,
+    "text": "Se recomienda cambiar centro de carga",
+    "respuesta": 11
+  },
+  {
+    "_id": 14,
+    "text": "Se recomienda cambiar tapa trasera",
+    "respuesta": 12
+  },
+  {
+    "_id": 15,
+    "text": "Se recomienda cambio de cámara frontal",
+    "respuesta": 14
+  },
+  {
+    "_id": 16,
+    "text": "Se recomienda cambio de cámara trasera",
+    "respuesta": 15
+  },
+  {
+    "_id": 16,
+    "text": "Se recomienda cambio de batería",
+    "respuesta": 18
+  },
+  {
+    "_id": 17,
+    "text": "Se recomienda limpieza de tarjeta madre",
+    "respuesta": 19
+  },
+  {
+    "_id": 18,
+    "text": "Se recomienda cambio de placa madre",
+    "respuesta": 19
+  },
+  {
+    "_id": 19,
+    "text": "Se recomienda reconectar la antena de red",
+    "respuesta": 20
+  },
+  {
+    "_id": 20,
+    "text": "Se recomienda cambiar antena de red",
+    "respuesta": 20
+  },
+  {
+    "_id": 21,
+    "text": "Se recomienda cambiar centro de carga",
+    "respuesta": 21
+  },
+  {
+    "_id": 22,
+    "text": "Se recomienda cambio de placa madre",
+    "respuesta": 22
   }
 ]
