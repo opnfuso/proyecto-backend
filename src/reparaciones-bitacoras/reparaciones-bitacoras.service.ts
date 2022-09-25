@@ -11,6 +11,10 @@ export class ReparacionesBitacorasService {
   ): Promise<ReparacionesBitacoras | null> {
     return this.prisma.reparacionesBitacoras.findUnique({
       where: reparacionesBitacorasWhereUniqueInput,
+      include: {
+        bitacora: true,
+        reparacion: true,
+      },
     });
   }
 
@@ -27,6 +31,10 @@ export class ReparacionesBitacorasService {
       take,
       cursor,
       where,
+      include: {
+        bitacora: true,
+        reparacion: true,
+      },
       orderBy,
     });
   }

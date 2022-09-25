@@ -16,6 +16,9 @@ export class BitacorasService {
   ): Promise<Bitacora | null> {
     return this.prisma.bitacora.findUnique({
       where: bitacoraWhereUniqueInput,
+      include: {
+        dispositivo: true,
+      },
     });
   }
 
@@ -32,6 +35,9 @@ export class BitacorasService {
       take,
       cursor,
       where,
+      include: {
+        dispositivo: true,
+      },
       orderBy,
     });
   }

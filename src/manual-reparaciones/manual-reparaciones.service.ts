@@ -27,9 +27,6 @@ export class ManualReparacionesService {
       take,
       cursor,
       where,
-      include: {
-        ReparacionesBitacoras: true,
-      },
       orderBy,
     });
   }

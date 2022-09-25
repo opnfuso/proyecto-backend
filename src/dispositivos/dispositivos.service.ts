@@ -11,6 +11,9 @@ export class DispositivosService {
   ): Promise<Dispositivo | null> {
     return this.prisma.dispositivo.findUnique({
       where: dispositivoWhereUniqueInput,
+      include: {
+        cliente: true,
+      },
     });
   }
 

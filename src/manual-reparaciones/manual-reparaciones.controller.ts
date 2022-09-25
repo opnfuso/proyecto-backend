@@ -28,7 +28,7 @@ export class ManualReparacionesController {
 
   @Get()
   findAll() {
-    return this.manualReparacionesService.manualReparaciones({});
+    return this.manualReparacionesService.manualReparacioness({});
   }
 
   @Get(':id')
