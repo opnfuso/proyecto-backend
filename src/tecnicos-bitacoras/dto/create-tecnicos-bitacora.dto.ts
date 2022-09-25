@@ -1,13 +1,14 @@
 import { Prisma } from '@prisma/client';
 import { IsInt } from 'class-validator';
 
-export class CreateReparacionesBitacoraDto {
+export class CreateTecnicosBitacoraDto {
   @IsInt()
-  manualReparacionesId: number;
+  tecnicoId: number;
 
   @IsInt()
   bitacoraId: number;
 
-  reparacion: Prisma.ManualReparacionesCreateNestedOneWithoutReparacionesBitacorasInput;
+  tecnico: Prisma.TecnicoCreateNestedOneWithoutTecnicosBitacorasInput;
+
   bitacora: Prisma.BitacoraCreateNestedOneWithoutReparacionesBitacorasInput;
 }

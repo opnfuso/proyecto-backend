@@ -1,0 +1,62 @@
+[
+  {
+    "_id": 1,
+    "text": "Se recomienda reinstalar el SO",
+    "respuesta": 3
+  },
+  {
+    "_id": 2,
+    "text": "Se recomienda un Downgrade de SO",
+    "respuesta": 3
+  },
+  {
+    "_id": 3,
+    "text": "Se recomienda reinstalar el SO",
+    "respuesta": 4
+  },
+  {
+    "_id": 4,
+    "text": "Se recomienda desbloquear con PC",
+    "respuesta": 4
+  },
+  {
+    "_id": 5,
+    "text": "Se recomienda desbloquear con cuenta iCloud",
+    "respuesta": 5
+  },
+  {
+    "_id": 6,
+    "text": "Se recomienda reinstalar el SO",
+    "respuesta": 5
+  },
+  {
+    "_id": 7,
+    "text": "Se recomienda un Downgrade de SO",
+    "respuesta": 5
+  },
+  {
+    "_id": 8,
+    "text": "Se recomienda eliminar el exceso de almacenamiento (Fotos y apps)",
+    "respuesta": 6
+  },
+  {
+    "_id": 9,
+    "text": "Se recomienda reinstalar el SO",
+    "respuesta": 6
+  },
+  {
+    "_id": 10,
+    "text": "Se recomienda ampliar el almacenamiento de iCloud",
+    "respuesta": 6
+  },
+  {
+    "_id": 11,
+    "text": "Se recomienda cambio de centro de carga",
+    "respuesta": 8
+  },
+  {
+    "_id": 12,
+    "text": "Se recomienda cambiar tarjeta madre",
+    "respuesta": 8
+  }
+]

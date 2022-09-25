@@ -6,6 +6,8 @@ import {
   Patch,
   Param,
   Delete,
+  HttpException,
+  HttpStatus,
 } from '@nestjs/common';
 import { ManualReparacionesService } from './manual-reparaciones.service';
 import { CreateManualReparacionDto } from './dto/create-manual-reparacion.dto';
@@ -18,33 +20,45 @@ export class ManualReparacionesController {
   ) {}
 
   @Post()
-  create(@Body() createManualReparacioneDto: CreateManualReparacionDto) {
-    return this.manualReparacionesService.create(createManualReparacioneDto);
+  create(@Body() createManualReparacionDto: CreateManualReparacionDto) {
+    return this.manualReparacionesService.createManualReparaciones(
+      createManualReparacionDto
+    );
   }
 
   @Get()
   findAll() {
-    return this.manualReparacionesService.findAll();
+    return this.manualReparacionesService.manualReparaciones({});
   }
 
   @Get(':id')
-  findOne(@Param('id') id: string) {
-    return this.manualReparacionesService.findOne(+id);
+  async findOne(@Param('id') id: string) {
+    const ManualReparaciones =
+      await this.manualReparacionesService.manualReparaciones({
+        id: Number(id),
+      });
+    if (ManualReparaciones === null) {
+      throw new HttpException('Not Found', HttpStatus.NOT_FOUND);
+    }
+
+    return ManualReparaciones;
   }
 
   @Patch(':id')
   update(
     @Param('id') id: string,
-    @Body() updateManualReparacioneDto: UpdateManualReparacionDto
+    @Body() updateManualReparacionDto: UpdateManualReparacionDto
   ) {
-    return this.manualReparacionesService.update(
-      +id,
-      updateManualReparacioneDto
-    );
+    return this.manualReparacionesService.updateManualReparaciones({
+      data: updateManualReparacionDto,
+      where: { id: Number(id) },
+    });
   }
 
   @Delete(':id')
   remove(@Param('id') id: string) {
-    return this.manualReparacionesService.remove(+id);
+    return this.manualReparacionesService.removeManualReparaciones({
+      id: Number(id),
+    });
   }
 }

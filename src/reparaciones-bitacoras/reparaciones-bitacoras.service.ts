@@ -1,29 +1,60 @@
 import { Injectable } from '@nestjs/common';
-import { CreateReparacionesBitacoraDto } from './dto/create-reparaciones-bitacora.dto';
-import { UpdateReparacionesBitacoraDto } from './dto/update-reparaciones-bitacora.dto';
+import { PrismaService } from '../prisma.service';
+import { ReparacionesBitacoras, Prisma } from '@prisma/client';
 
 @Injectable()
 export class ReparacionesBitacorasService {
-  create(createReparacionesBitacoraDto: CreateReparacionesBitacoraDto) {
-    return 'This action adds a new reparacionesBitacora';
+  constructor(private prisma: PrismaService) {}
+
+  reparacionesBitacoras(
+    reparacionesBitacorasWhereUniqueInput: Prisma.ReparacionesBitacorasWhereUniqueInput
+  ): Promise<ReparacionesBitacoras | null> {
+    return this.prisma.reparacionesBitacoras.findUnique({
+      where: reparacionesBitacorasWhereUniqueInput,
+    });
   }
 
-  findAll() {
-    return `This action returns all reparacionesBitacoras`;
+  reparacionesBitacorass(params: {
+    skip?: number;
+    take?: number;
+    cursor?: Prisma.ReparacionesBitacorasWhereUniqueInput;
+    where?: Prisma.ReparacionesBitacorasWhereInput;
+    orderBy?: Prisma.ReparacionesBitacorasOrderByWithRelationInput;
+  }): Promise<ReparacionesBitacoras[]> {
+    const { skip, take, cursor, where, orderBy } = params;
+    return this.prisma.reparacionesBitacoras.findMany({
+      skip,
+      take,
+      cursor,
+      where,
+      orderBy,
+    });
   }
 
-  findOne(id: number) {
-    return `This action returns a #${id} reparacionesBitacora`;
+  createReparacionesBitacoras(
+    data: Prisma.ReparacionesBitacorasCreateInput
+  ): Promise<ReparacionesBitacoras> {
+    return this.prisma.reparacionesBitacoras.create({
+      data,
+    });
   }
 
-  update(
-    id: number,
-    updateReparacionesBitacoraDto: UpdateReparacionesBitacoraDto
-  ) {
-    return `This action updates a #${id} reparacionesBitacora`;
+  updateReparacionesBitacoras(params: {
+    where: Prisma.ReparacionesBitacorasWhereUniqueInput;
+    data: Prisma.ReparacionesBitacorasUpdateInput;
+  }): Promise<ReparacionesBitacoras> {
+    const { where, data } = params;
+    return this.prisma.reparacionesBitacoras.update({
+      data,
+      where,
+    });
   }
 
-  remove(id: number) {
-    return `This action removes a #${id} reparacionesBitacora`;
+  removeReparacionesBitacoras(
+    where: Prisma.ReparacionesBitacorasWhereUniqueInput
+  ): Promise<ReparacionesBitacoras> {
+    return this.prisma.reparacionesBitacoras.delete({
+      where,
+    });
   }
 }

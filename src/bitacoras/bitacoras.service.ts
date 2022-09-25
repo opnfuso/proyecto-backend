@@ -4,7 +4,7 @@ import { Bitacora, Prisma } from '@prisma/client';
 
 @Injectable()
 export class BitacorasService {
-  constructor(private prisma: PrismaService) { }
+  constructor(private prisma: PrismaService) {}
 
   /**
    * Regresa la bitacora que coincida con el id
@@ -32,9 +32,6 @@ export class BitacorasService {
       take,
       cursor,
       where,
-      include: {
-        dispositivo: true,
-      },
       orderBy,
     });
   }

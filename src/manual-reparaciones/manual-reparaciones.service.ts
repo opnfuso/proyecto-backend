@@ -1,26 +1,63 @@
 import { Injectable } from '@nestjs/common';
-import { CreateManualReparacionDto } from './dto/create-manual-reparacion.dto';
-import { UpdateManualReparacionDto } from './dto/update-manual-reparacion.dto';
+import { PrismaService } from '../prisma.service';
+import { ManualReparaciones, Prisma } from '@prisma/client';
 
 @Injectable()
 export class ManualReparacionesService {
-  create(createManualReparacioneDto: CreateManualReparacionDto) {
-    return 'This action adds a new manualReparacione';
+  constructor(private prisma: PrismaService) {}
+
+  manualReparaciones(
+    manualReparacionesWhereUniqueInput: Prisma.ManualReparacionesWhereUniqueInput
+  ): Promise<ManualReparaciones | null> {
+    return this.prisma.manualReparaciones.findUnique({
+      where: manualReparacionesWhereUniqueInput,
+    });
   }
 
-  findAll() {
-    return `This action returns all manualReparaciones`;
+  manualReparacioness(params: {
+    skip?: number;
+    take?: number;
+    cursor?: Prisma.ManualReparacionesWhereUniqueInput;
+    where?: Prisma.ManualReparacionesWhereInput;
+    orderBy?: Prisma.ManualReparacionesOrderByWithRelationInput;
+  }): Promise<ManualReparaciones[]> {
+    const { skip, take, cursor, where, orderBy } = params;
+    return this.prisma.manualReparaciones.findMany({
+      skip,
+      take,
+      cursor,
+      where,
+      include: {
+        ReparacionesBitacoras: true,
+      },
+      orderBy,
+    });
   }
 
-  findOne(id: number) {
-    return `This action returns a #${id} manualReparacione`;
+  createManualReparaciones(
+    data: Prisma.ManualReparacionesCreateInput
+  ): Promise<ManualReparaciones> {
+    return this.prisma.manualReparaciones.create({
+      data,
+    });
   }
 
-  update(id: number, updateManualReparacioneDto: UpdateManualReparacionDto) {
-    return `This action updates a #${id} manualReparacione`;
+  updateManualReparaciones(params: {
+    where: Prisma.ManualReparacionesWhereUniqueInput;
+    data: Prisma.ManualReparacionesUpdateInput;
+  }): Promise<ManualReparaciones> {
+    const { where, data } = params;
+    return this.prisma.manualReparaciones.update({
+      data,
+      where,
+    });
   }
 
-  remove(id: number) {
-    return `This action removes a #${id} manualReparacione`;
+  removeManualReparaciones(
+    where: Prisma.ManualReparacionesWhereUniqueInput
+  ): Promise<ManualReparaciones> {
+    return this.prisma.manualReparaciones.delete({
+      where,
+    });
   }
 }

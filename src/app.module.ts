@@ -8,6 +8,7 @@ import { DispositivosModule } from './dispositivos/dispositivos.module';
 import { BitacorasModule } from './bitacoras/bitacoras.module';
 import { ManualReparacionesModule } from './manual-reparaciones/manual-reparaciones.module';
 import { ReparacionesBitacorasModule } from './reparaciones-bitacoras/reparaciones-bitacoras.module';
+import { TecnicosBitacorasModule } from './tecnicos-bitacoras/tecnicos-bitacoras.module';
 
 @Module({
   imports: [
@@ -18,6 +19,7 @@ import { ReparacionesBitacorasModule } from './reparaciones-bitacoras/reparacion
     BitacorasModule,
     ManualReparacionesModule,
     ReparacionesBitacorasModule,
+    TecnicosBitacorasModule,
   ],
 })
 export class AppModule {}

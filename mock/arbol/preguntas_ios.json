@@ -1,0 +1,18 @@
+[
+  {
+    "_id": 1,
+    "text": "Identifica el problema como software o hardware"
+  },
+  {
+    "_id": 2,
+    "text": "¿El dispositivo enciende?"
+  },
+  {
+    "_id": 3,
+    "text": "¿Qué nota al encender el dispositivo?"
+  },
+  {
+    "_id": 4,
+    "text": "¿Si lo conecta a la corriente enciende?"
+  }
+]

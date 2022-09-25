@@ -1,0 +1,50 @@
+[
+  {
+    "_id": 1,
+    "text": "Software",
+    "pregunta": 1,
+    "siguiente_pregunta": 2
+  },
+  {
+    "_id": 2,
+    "text": "Si",
+    "pregunta": 2,
+    "siguiente_pregunta": 3
+  },
+  {
+    "_id": 3,
+    "text": "Se queda trabado en la pantalla de inicio",
+    "pregunta": 3,
+    "siguiente_pregunta": 0
+  },
+  {
+    "_id": 4,
+    "text": "Tiene bloqueo de cuenta iCloud",
+    "pregunta": 3,
+    "siguiente_pregunta": 0
+  },
+  {
+    "_id": 5,
+    "text": "Tiene contraseña",
+    "pregunta": 3,
+    "siguiente_pregunta": 0
+  },
+  {
+    "_id": 6,
+    "text": "Se traba",
+    "pregunta": 3,
+    "siguiente_pregunta": 0
+  },
+  {
+    "_id": 7,
+    "text": "Si",
+    "pregunta": 4,
+    "siguiente_pregunta": 3
+  },
+  {
+    "_id": 8,
+    "text": "No",
+    "pregunta": 2,
+    "siguiente_pregunta": 0
+  }
+]
