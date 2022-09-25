@@ -14,7 +14,7 @@ import { CreateTecnicosBitacoraDto } from './dto/create-tecnicos-bitacora.dto';
 import { UpdateTecnicosBitacoraDto } from './dto/update-tecnicos-bitacora.dto';
 
 @Controller('tecnicos-bitacorass')
-export class TecnicosBitacorassBitacorasController {
+export class TecnicosBitacorasController {
   constructor(
     private readonly tecnicosBitacorassService: TecnicosBitacorasService
   ) {}
