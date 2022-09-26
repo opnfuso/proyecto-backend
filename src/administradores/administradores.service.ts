@@ -4,8 +4,17 @@ import { Administrador, Prisma } from '@prisma/client';
 
 @Injectable()
 export class AdministradoresService {
+  /**
+   * Inicializacion  del servicio de prisma en el administrador
+   * @param prisma Servicio creado por la libreria Prisma para manipular la BD
+   */
   constructor(private prisma: PrismaService) {}
 
+  /**
+   * Funcion para obtener un administrador por su id
+   * @param administradorWhereUniqueInput Parametro creado por Prisma para obtener el id del administrador de forma segura
+   * @returns El administrador con el id indicado
+   */
   administrador(
     administradorWhereUniqueInput: Prisma.AdministradorWhereUniqueInput
   ): Promise<Administrador | null> {

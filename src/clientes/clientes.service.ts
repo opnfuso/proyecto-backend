@@ -29,6 +29,9 @@ export class ClientesService {
       cursor,
       where,
       orderBy,
+      include: {
+        Dispositivo: true,
+      },
     });
   }
 
