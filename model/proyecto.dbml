@@ -1,0 +1,79 @@
+Project Proyecto_Final {
+  database_type: 'PostgreSQL'
+  Note: 'Web platform that helps mobile repair'
+}
+
+Table administradores {
+  id integer [pk, unique, not null, increment]
+  nombres varchar(60) [not null]
+  apellidos varchar(60) [not null]
+  fecha_nacimiento date [not null]
+  telefono varchar(13) [not null]
+  Note: 'Tabla que contiene la información de los administradores'
+}
+
+Table tecnicos {
+  id integer [pk, unique, not null, increment]
+  nombres varchar(60) [not null]
+  apellidos varchar(60) [not null]
+  fecha_nacimiento date [not null]
+  telefono varchar(13) [not null]
+  activo boolean [not null, default: true]
+}
+
+Table clientes {
+  id integer [pk, unique, not null, increment]
+  nombres varchar(60) [not null]
+  apellidos varchar(60) [not null]
+  fecha_nacimiento date [not null]
+  telefono varchar(13) [not null]
+  domicilio varchar(100) [not null]
+}
+
+Table dispostivos {
+  imei varchar(15) [pk, unique, not null]
+  modelo varchar(30) [not null]
+  marca varchar(30) [not null]
+  numero_serie varchar(60) [not null]
+  fecha_recibido date [not null]
+  id_cliente integer [not null]
+}
+
+Table manual_reparaciones {
+  id integer [pk, unique, not null, increment]
+  titulo varchar(100) [not null]
+  contenido text [not null]
+}
+
+Table bitacoras {
+  id integer [pk, unique, not null, increment]
+  imei_dispositivo integer [not null]
+  fecha_salida date [not null]
+  costo double [not null]
+  notas text
+  terminado boolean [default: false]
+}
+
+Table reparaciones_bitacoras {
+  id integer [pk, unique, not null, increment]
+  id_reparacion integer [not null]
+  id_bitacora integer [not null]
+}
+
+Table tecnicos_bitacoras {
+  id integer [pk, unique, not null, increment]
+  id_tecnico integer [not null]
+  id_bitacora integer [not null]
+}
+
+Ref: bitacoras.imei_dispositivo > dispostivos.imei [delete: restrict]
+
+Ref: reparaciones_bitacoras.id_reparacion > manual_reparaciones.id [delete: restrict]
+
+Ref: reparaciones_bitacoras.id_bitacora > bitacoras.id [delete: restrict]
+
+Ref: tecnicos_bitacoras.id_tecnico > tecnicos.id [delete: restrict]
+
+Ref: tecnicos_bitacoras.id_bitacora > bitacoras.id [delete: restrict]
+
+Ref: dispostivos.id_cliente > clientes.id [delete: restrict]
