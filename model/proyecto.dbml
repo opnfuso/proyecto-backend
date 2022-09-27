@@ -4,11 +4,11 @@ Project Proyecto_Final {
 }
 
 Table administradores {
-  id integer [pk, unique, not null, increment]
-  nombres varchar(60) [not null]
-  apellidos varchar(60) [not null]
-  fecha_nacimiento date [not null]
-  telefono varchar(13) [not null]
+  id integer [pk, unique, not null, increment, Note: 'Identificador unico para el administrador']
+  nombres varchar(60) [not null, Note: 'Nombre o nombres del administrador']
+  apellidos varchar(60) [not null, Note: 'Apellidos del administrador']
+  fecha_nacimiento date [not null, Note: 'Fecha de nacimiento del administrador en formato: yyyy-mm-dd']
+  telefono varchar(13) [not null, Note: 'Número de telefono del administrador']
   Note: 'Tabla que contiene la información de los administradores'
 }
 
@@ -19,6 +19,7 @@ Table tecnicos {
   fecha_nacimiento date [not null]
   telefono varchar(13) [not null]
   activo boolean [not null, default: true]
+  Note: 'Tabla que contiene la información de los tecnicos'
 }
 
 Table clientes {
@@ -28,6 +29,7 @@ Table clientes {
   fecha_nacimiento date [not null]
   telefono varchar(13) [not null]
   domicilio varchar(100) [not null]
+  Note: 'Tabla que contiene la información de los clientes'
 }
 
 Table dispostivos {
@@ -37,12 +39,14 @@ Table dispostivos {
   numero_serie varchar(60) [not null]
   fecha_recibido date [not null]
   id_cliente integer [not null]
+  Note: 'Tabla que contiene la información de los dispositivos'
 }
 
 Table manual_reparaciones {
   id integer [pk, unique, not null, increment]
   titulo varchar(100) [not null]
   contenido text [not null]
+  Note: 'Tabla que contiene el titulo y contenido del manual de reparaciones'
 }
 
 Table bitacoras {
@@ -52,18 +56,21 @@ Table bitacoras {
   costo double [not null]
   notas text
   terminado boolean [default: false]
+  Note: 'Tabla que contiene la información de las bitacoras'
 }
 
 Table reparaciones_bitacoras {
   id integer [pk, unique, not null, increment]
   id_reparacion integer [not null]
   id_bitacora integer [not null]
+  Note: 'Tabla para la relación entre las reparaciones y bitacoras'
 }
 
 Table tecnicos_bitacoras {
   id integer [pk, unique, not null, increment]
   id_tecnico integer [not null]
   id_bitacora integer [not null]
+  Note: 'Tabla para la relación de tecnicos y bitacoras'
 }
 
 Ref: bitacoras.imei_dispositivo > dispostivos.imei [delete: restrict]

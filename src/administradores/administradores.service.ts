@@ -2,6 +2,9 @@ import { Injectable } from '@nestjs/common';
 import { PrismaService } from '../prisma.service';
 import { Administrador, Prisma } from '@prisma/client';
 
+/**
+ * Clase para la manipulación de la BD en el programa
+ */
 @Injectable()
 export class AdministradoresService {
   /**
@@ -23,6 +26,11 @@ export class AdministradoresService {
     });
   }
 
+  /**
+   * Función para obtener los administradores con filtros
+   * @param params Parametros para el filtrado de datos en la consulta
+   * @returns Los administradores filtrados
+   */
   administradores(params: {
     skip?: number;
     take?: number;
@@ -40,6 +48,11 @@ export class AdministradoresService {
     });
   }
 
+  /**
+   * Función para crear un administrador
+   * @param data Datos para la creación del nuevo administrador
+   * @returns El administrador creado
+   */
   createAdministrador(
     data: Prisma.AdministradorCreateInput
   ): Promise<Administrador> {
@@ -49,6 +62,11 @@ export class AdministradoresService {
     });
   }
 
+  /**
+   * Función para editar un administrador por su id
+   * @param params Parametros para la edición del administrador como los datos y el id
+   * @returns El administrador con las ediciones
+   */
   updateAdministrador(params: {
     where: Prisma.AdministradorWhereUniqueInput;
     data: Prisma.AdministradorUpdateInput;
@@ -60,6 +78,11 @@ export class AdministradoresService {
     });
   }
 
+  /**
+   * Función para eliminar un administrador por Id
+   * @param where Id del adminstrador a ser eliminado
+   * @returns Un objeto vacío al eliminar el administrador
+   */
   removeAdministrador(
     where: Prisma.AdministradorWhereUniqueInput
   ): Promise<Administrador> {

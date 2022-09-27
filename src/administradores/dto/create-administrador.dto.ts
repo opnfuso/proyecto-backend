@@ -7,6 +7,9 @@ import {
   IsString,
 } from 'class-validator';
 
+/**
+ * Clase para la validación de datos al crear el Administrador
+ */
 export class CreateAdministradorDto {
   /**
    * Nombres del administrador
