@@ -13,22 +13,22 @@ Table administradores {
 }
 
 Table tecnicos {
-  id integer [pk, unique, not null, increment]
-  nombres varchar(60) [not null]
-  apellidos varchar(60) [not null]
-  fecha_nacimiento date [not null]
-  telefono varchar(13) [not null]
-  activo boolean [not null, default: true]
-  Note: 'Tabla que contiene la información de los tecnicos'
+  id integer [pk, unique, not null, increment, Note: 'Identificador unico para el tecnico']
+  nombres varchar(60) [not null, Note: 'Nombre o nombres del técnico']
+  apellidos varchar(60) [not null, Note: 'Apellidos del técnico']
+  fecha_nacimiento date [not null, Note: 'Fecha de nacimiento del administrador en formato: yyyy-mm-dd']
+  telefono varchar(13) [not null, Note: 'Número del telefono del técnico']
+  activo boolean [not null, default: true, Note: 'Indicador del estado activo o inactivo del técnico']
+  Note: 'Tabla que contiene la información de los técnicos'
 }
 
 Table clientes {
-  id integer [pk, unique, not null, increment]
-  nombres varchar(60) [not null]
-  apellidos varchar(60) [not null]
-  fecha_nacimiento date [not null]
-  telefono varchar(13) [not null]
-  domicilio varchar(100) [not null]
+  id integer [pk, unique, not null, increment, Note: 'Identificador unico para el cliente']
+  nombres varchar(60) [not null, Note: 'Nombre o nombres del cliente']
+  apellidos varchar(60) [not null, Note: 'Apellidos del cliente']
+  fecha_nacimiento date [not null, Note: 'Fecha de nacimiento del cliente en formato: yyyy-mm-dd']
+  telefono varchar(13) [not null, Note: 'Número del telefono del cliente']
+  domicilio varchar(100) [not null, Note: 'Domicilio del cliente']
   Note: 'Tabla que contiene la información de los clientes'
 }
 
