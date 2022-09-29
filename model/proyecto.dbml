@@ -33,12 +33,12 @@ Table clientes {
 }
 
 Table dispostivos {
-  imei varchar(15) [pk, unique, not null]
-  modelo varchar(30) [not null]
-  marca varchar(30) [not null]
-  numero_serie varchar(60) [not null]
-  fecha_recibido date [not null]
-  id_cliente integer [not null]
+  imei varchar(15) [pk, unique, not null, Note: 'Código imei del dispositivo que será usado como identificador unico']
+  modelo varchar(30) [not null, Note: 'Modelo del dispositivo']
+  marca varchar(30) [not null, Note: 'Marca del dispositivo']
+  numero_serie varchar(60) [not null, Note: 'Número de serie del dispositivo']
+  fecha_recibido date [not null, Note: 'Fecha en la que entró el dipositivo al sistema en formato: yyyy-mm-dd']
+  id_cliente integer [not null, Note: 'Identificador del cliente que llevó el dispositivo']
   Note: 'Tabla que contiene la información de los dispositivos'
 }
 
@@ -55,7 +55,7 @@ Table bitacoras {
   fecha_salida date [not null]
   costo double [not null]
   notas text
-  terminado boolean [default: false]
+  terminado boolean [not null, default: false]
   Note: 'Tabla que contiene la información de las bitacoras'
 }
 
