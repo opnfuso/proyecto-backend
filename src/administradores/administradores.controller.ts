@@ -13,12 +13,24 @@ import { AdministradoresService } from './administradores.service';
 import { CreateAdministradorDto } from './dto/create-administrador.dto';
 import { UpdateAdministradorDto } from './dto/update-administrador.dto';
 
+/**
+ * Clase controlador de administradores que define las rutas del path 'administradores' en la url
+ */
 @Controller('administradores')
 export class AdministradoresController {
+  /**
+   * Constructor que instancia la clase servicio
+   * @param administradoresService Clase servicio que permite el uso de la BD
+   */
   constructor(
     private readonly administradoresService: AdministradoresService
   ) {}
 
+  /**
+   * Función create para la acción HTTP POST
+   * @param createAdministradorDto Clase que valida el body de la petición al servidor
+   * @returns El administrador creado
+   */
   @Post()
   create(@Body() createAdministradorDto: CreateAdministradorDto) {
     return this.administradoresService.createAdministrador(
@@ -26,11 +38,20 @@ export class AdministradoresController {
     );
   }
 
+  /**
+   * Función findAll para la acción HTTP GET en la ruta base
+   * @returns Un arreglo de todos los administradores en JSON
+   */
   @Get()
   findAll() {
     return this.administradoresService.administradores({});
   }
 
+  /**
+   * Función findOne para la acción HTTP GET en la ruta base con un parametro
+   * @param id Identificador  del administrador a encontrar que se pasa por los paramentros de la url
+   * @returns El administrador que tenga el id indicado o un error 404 en caso de no encontrarse
+   */
   @Get(':id')
   async findOne(@Param('id') id: string) {
     const administrador = await this.administradoresService.administrador({
@@ -43,6 +64,12 @@ export class AdministradoresController {
     return administrador;
   }
 
+  /**
+   * Función update para la acción HTTP PATCH de la ruta base con un parametro
+   * @param id Identificador del administrador a editar
+   * @param updateAdministradorDto Validador de la información a editar desde el body
+   * @returns El administrador editado
+   */
   @Patch(':id')
   update(
     @Param('id') id: string,
@@ -54,6 +81,11 @@ export class AdministradoresController {
     });
   }
 
+  /**
+   * Función remove para la acción HTTP DELETE de la ruta base con un parametro
+   * @param id Identificador del adminstrador a eliminar
+   * @returns El administrador eliminado
+   */
   @Delete(':id')
   remove(@Param('id') id: string) {
     return this.administradoresService.removeAdministrador({ id: Number(id) });
