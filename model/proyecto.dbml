@@ -43,33 +43,33 @@ Table dispostivos {
 }
 
 Table manual_reparaciones {
-  id integer [pk, unique, not null, increment]
-  titulo varchar(100) [not null]
-  contenido text [not null]
+  id integer [pk, unique, not null, increment, Note: 'Identificador unico para la reparación']
+  titulo varchar(100) [not null, Note: 'Titulo de la reparación']
+  contenido text [not null, Note: 'Contenido en HTML de la reparación']
   Note: 'Tabla que contiene el titulo y contenido del manual de reparaciones'
 }
 
 Table bitacoras {
-  id integer [pk, unique, not null, increment]
-  imei_dispositivo integer [not null]
-  fecha_salida date [not null]
-  costo double [not null]
-  notas text
-  terminado boolean [not null, default: false]
+  id integer [pk, unique, not null, increment, Note: 'Identificador unico para la bitacora']
+  imei_dispositivo integer [not null, Note: 'Imei del dispositivo de la bitacora']
+  fecha_salida date [not null, Note: 'Fecha de la salida del dispositivo en formato yyyy-mm-dd']
+  costo double [not null, Note: 'Costo final de la reparación']
+  notas text [Note: 'Notas opcionales sobre la reparación']
+  terminado boolean [not null, default: false, Note: 'Indicador de terminado de la bitacora']
   Note: 'Tabla que contiene la información de las bitacoras'
 }
 
 Table reparaciones_bitacoras {
-  id integer [pk, unique, not null, increment]
-  id_reparacion integer [not null]
-  id_bitacora integer [not null]
+  id integer [pk, unique, not null, increment, Note: 'Identificador unico de la relación entre reparaciones y bitacoras']
+  id_reparacion integer [not null, Note: 'Identificador de la reparación']
+  id_bitacora integer [not null, Note: 'Identificador de la bitacora']
   Note: 'Tabla para la relación entre las reparaciones y bitacoras'
 }
 
 Table tecnicos_bitacoras {
-  id integer [pk, unique, not null, increment]
-  id_tecnico integer [not null]
-  id_bitacora integer [not null]
+  id integer [pk, unique, not null, increment, Note: 'Identificador unido de la relación entre tecnicos y bitacoras']
+  id_tecnico integer [not null, Note: 'Identificador del tecnico']
+  id_bitacora integer [not null, Note: 'Identificador de la bitacoras']
   Note: 'Tabla para la relación de tecnicos y bitacoras'
 }
 
