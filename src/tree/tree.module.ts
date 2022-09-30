@@ -5,9 +5,15 @@ import { PreguntasService } from './preguntas/preguntas.service';
 import { RespuestasService } from './respuestas/respuestas.service';
 import { SolucionesController } from './soluciones/soluciones.controller';
 import { SolucionesService } from './soluciones/soluciones.service';
+import { MongooseModule } from '@nestjs/mongoose';
+import { Pregunta, PreguntaSchema } from './preguntas/schema/preguntas.schema';
 
 @Module({
-  imports: [],
+  imports: [
+    MongooseModule.forFeature([
+      { name: Pregunta.name, schema: PreguntaSchema },
+    ]),
+  ],
   controllers: [
     PreguntasController,
     RespuestasController,
