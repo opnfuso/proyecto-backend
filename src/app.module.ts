@@ -7,9 +7,18 @@ import { BitacorasModule } from './bitacoras/bitacoras.module';
 import { ManualReparacionesModule } from './manual-reparaciones/manual-reparaciones.module';
 import { ReparacionesBitacorasModule } from './reparaciones-bitacoras/reparaciones-bitacoras.module';
 import { TecnicosBitacorasModule } from './tecnicos-bitacoras/tecnicos-bitacoras.module';
+import { MongooseModule } from '@nestjs/mongoose';
+import { ConfigModule } from '@nestjs/config';
+import { TreeModule } from './tree/tree.module';
+
+ConfigModule.forRoot();
 
 @Module({
   imports: [
+    ConfigModule.forRoot(),
+    MongooseModule.forRoot(process.env.MONGO_URI, {
+      dbName: process.env.DB_NAME,
+    }),
     AdministradoresModule,
     TecnicosModule,
     ClientesModule,
@@ -18,6 +27,7 @@ import { TecnicosBitacorasModule } from './tecnicos-bitacoras/tecnicos-bitacoras
     ManualReparacionesModule,
     ReparacionesBitacorasModule,
     TecnicosBitacorasModule,
+    TreeModule,
   ],
 })
 export class AppModule {}
