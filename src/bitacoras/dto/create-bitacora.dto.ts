@@ -16,6 +16,7 @@ export class CreateBitacoraDto {
   imei_dispositivo: string;
 
   /**Fecha de salida del dispositivo al terminar la reparación */
+  @IsOptional()
   @IsDateString()
   fecha_salida: string;
 

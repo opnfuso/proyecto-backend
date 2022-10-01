@@ -52,8 +52,8 @@ Table manual_reparaciones {
 Table bitacoras {
   id integer [pk, unique, not null, increment, Note: 'Identificador unico para la bitacora']
   imei_dispositivo integer [not null, Note: 'Imei del dispositivo de la bitacora']
-  fecha_salida date [not null, Note: 'Fecha de la salida del dispositivo en formato yyyy-mm-dd']
-  costo double [not null, Note: 'Costo final de la reparación']
+  fecha_salida date [Note: 'Fecha de la salida del dispositivo en formato yyyy-mm-dd']
+  costo double [Note: 'Costo final de la reparación']
   notas text [Note: 'Notas opcionales sobre la reparación']
   terminado boolean [not null, default: false, Note: 'Indicador de terminado de la bitacora']
   Note: 'Tabla que contiene la información de las bitacoras'

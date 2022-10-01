@@ -53,9 +53,9 @@ model Bitacora {
   id                    Int                     @id @default(autoincrement())
   dispositivo           Dispositivo             @relation(fields: [imei_dispositivo], references: [imei])
   imei_dispositivo      String
-  fecha_salida          DateTime                @db.Date()
-  costo                 Float                   @db.Real()
-  notas                 String                  @db.Text()
+  fecha_salida          DateTime?               @db.Date()
+  costo                 Float?                  @db.Real()
+  notas                 String?                 @db.Text()
   terminado             Boolean                 @default(false)
   TecnicosBitacoras     TecnicosBitacoras[]
   ReparacionesBitacoras ReparacionesBitacoras[]
