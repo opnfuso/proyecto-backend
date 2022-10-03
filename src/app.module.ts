@@ -10,7 +10,6 @@ import { TecnicosBitacorasModule } from './tecnicos-bitacoras/tecnicos-bitacoras
 import { MongooseModule } from '@nestjs/mongoose';
 import { ConfigModule } from '@nestjs/config';
 import { TreeModule } from './tree/tree.module';
-import { TreeBitacorasModule } from './tree-bitacoras/tree-bitacoras.module';
 
 ConfigModule.forRoot();
 
@@ -29,7 +28,6 @@ ConfigModule.forRoot();
     ReparacionesBitacorasModule,
     TecnicosBitacorasModule,
     TreeModule,
-    TreeBitacorasModule,
   ],
 })
 export class AppModule {}
