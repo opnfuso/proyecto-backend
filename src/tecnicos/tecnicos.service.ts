@@ -11,6 +11,13 @@ export class TecnicosService {
   ): Promise<Tecnico | null> {
     return this.prisma.tecnico.findUnique({
       where: tecnicoWhereUniqueInput,
+      include: {
+        TecnicosBitacoras: {
+          include: {
+            bitacora: true,
+          },
+        },
+      },
     });
   }
 
@@ -28,6 +35,13 @@ export class TecnicosService {
       cursor,
       where,
       orderBy,
+      include: {
+        TecnicosBitacoras: {
+          include: {
+            bitacora: true,
+          },
+        },
+      },
     });
   }
 

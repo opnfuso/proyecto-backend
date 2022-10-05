@@ -18,6 +18,16 @@ export class BitacorasService {
       where: bitacoraWhereUniqueInput,
       include: {
         dispositivo: true,
+        TecnicosBitacoras: {
+          include: {
+            tecnico: true,
+          },
+        },
+        ReparacionesBitacoras: {
+          include: {
+            reparacion: true,
+          },
+        },
       },
     });
   }
@@ -37,6 +47,16 @@ export class BitacorasService {
       where,
       include: {
         dispositivo: true,
+        TecnicosBitacoras: {
+          include: {
+            tecnico: true,
+          },
+        },
+        ReparacionesBitacoras: {
+          include: {
+            reparacion: true,
+          },
+        },
       },
       orderBy,
     });

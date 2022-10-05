@@ -11,6 +11,13 @@ export class ManualReparacionesService {
   ): Promise<ManualReparaciones | null> {
     return this.prisma.manualReparaciones.findUnique({
       where: manualReparacionesWhereUniqueInput,
+      include: {
+        ReparacionesBitacoras: {
+          include: {
+            bitacora: true,
+          },
+        },
+      },
     });
   }
 
@@ -28,6 +35,13 @@ export class ManualReparacionesService {
       cursor,
       where,
       orderBy,
+      include: {
+        ReparacionesBitacoras: {
+          include: {
+            bitacora: true,
+          },
+        },
+      },
     });
   }
 
