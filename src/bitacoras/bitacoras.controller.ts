@@ -13,6 +13,9 @@ import { BitacorasService } from './bitacoras.service';
 import { CreateBitacoraDto } from './dto/create-bitacora.dto';
 import { UpdateBitacoraDto } from './dto/update-bitacora.dto';
 
+/**
+ * Clase controlador de bitacoras que define las rutas del path 'bitacoras' en la url
+ */
 @Controller('bitacoras')
 export class BitacorasController {
   constructor(private readonly bitacorasService: BitacorasService) {}
