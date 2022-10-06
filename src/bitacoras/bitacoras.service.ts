@@ -2,14 +2,21 @@ import { Injectable } from '@nestjs/common';
 import { PrismaService } from '../prisma.service';
 import { Bitacora, Prisma } from '@prisma/client';
 
+/**
+ * Clase para la manipulación de la BD en el modulo bitacoras
+ */
 @Injectable()
 export class BitacorasService {
+  /**
+   * Inicializacion  del servicio de prisma en la bitacora
+   * @param prisma Servicio creado por la librería Prisma para manipular la BD
+   */
   constructor(private prisma: PrismaService) {}
 
   /**
-   * Regresa la bitacora que coincida con el id
-   * @param bitacoraWhereUniqueInput Parametro seguro autogenerado por prisma que obtiene un id
-   * @returns Una bitacora
+   * Función para obtener una bitacora por su id
+   * @param bitacoraWhereUniqueInput Parametro creado por Prisma para obtener el id desde los parametros de una forma segura
+   * @returns La bitacora con id indicado
    */
   bitacora(
     bitacoraWhereUniqueInput: Prisma.BitacoraWhereUniqueInput

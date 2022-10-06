@@ -3,7 +3,7 @@ import { PrismaService } from '../prisma.service';
 import { Administrador, Prisma } from '@prisma/client';
 
 /**
- * Clase para la manipulación de la BD en el programa
+ * Clase para la manipulación de la BD en el modulo administrador
  */
 @Injectable()
 export class AdministradoresService {
