@@ -31,7 +31,7 @@ export class AdministradoresService {
    * @param params Parametros para el filtrado de datos en la consulta
    * @returns Los administradores filtrados
    */
-  administradores(params: {
+  async administradores(params: {
     skip?: number;
     take?: number;
     cursor?: Prisma.AdministradorWhereUniqueInput;
@@ -39,13 +39,21 @@ export class AdministradoresService {
     orderBy?: Prisma.AdministradorOrderByWithRelationInput;
   }): Promise<Administrador[]> {
     const { skip, take, cursor, where, orderBy } = params;
-    return this.prisma.administrador.findMany({
+    const administradores = await this.prisma.administrador.findMany({
       skip,
       take,
       cursor,
       where,
       orderBy,
     });
+
+    const result = administradores.map((administrador) => {
+      administrador['fecha_nacimiento_string'] =
+        administrador.fecha_nacimiento.toLocaleDateString('es-MX');
+      return administrador;
+    });
+
+    return result;
   }
 
   /**
