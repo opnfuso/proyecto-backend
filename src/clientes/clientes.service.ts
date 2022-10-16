@@ -6,12 +6,17 @@ import { Cliente, Prisma } from '@prisma/client';
 export class ClientesService {
   constructor(private prisma: PrismaService) {}
 
-  cliente(
+  async cliente(
     clienteWhereUniqueInput: Prisma.ClienteWhereUniqueInput
   ): Promise<Cliente | null> {
-    return this.prisma.cliente.findUnique({
+    const cliente = await this.prisma.cliente.findUnique({
       where: clienteWhereUniqueInput,
     });
+
+    cliente['fecha_nacimiento_string'] =
+      cliente.fecha_nacimiento.toLocaleDateString('es-MX');
+
+    return cliente;
   }
 
   async clientes(params: {
@@ -23,7 +28,7 @@ export class ClientesService {
   }): Promise<Cliente[]> {
     const { skip, take, cursor, where, orderBy } = params;
 
-    return this.prisma.cliente.findMany({
+    const clientes = await this.prisma.cliente.findMany({
       skip,
       take,
       cursor,
@@ -33,6 +38,14 @@ export class ClientesService {
         Dispositivo: true,
       },
     });
+
+    const result = clientes.map((cliente) => {
+      cliente['fecha_nacimiento_string'] =
+        cliente.fecha_nacimiento.toLocaleDateString('es-MX');
+      return cliente;
+    });
+
+    return result;
   }
 
   createCliente(data: Prisma.ClienteCreateInput): Promise<Cliente> {

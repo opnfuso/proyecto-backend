@@ -18,12 +18,17 @@ export class AdministradoresService {
    * @param administradorWhereUniqueInput Parametro creado por Prisma para obtener el id del administrador de forma segura
    * @returns El administrador con el id indicado
    */
-  administrador(
+  async administrador(
     administradorWhereUniqueInput: Prisma.AdministradorWhereUniqueInput
   ): Promise<Administrador | null> {
-    return this.prisma.administrador.findUnique({
+    const administrador = await this.prisma.administrador.findUnique({
       where: administradorWhereUniqueInput,
     });
+
+    administrador['fecha_nacimiento_string'] =
+      administrador.fecha_nacimiento.toLocaleDateString('es-MX');
+
+    return administrador;
   }
 
   /**
