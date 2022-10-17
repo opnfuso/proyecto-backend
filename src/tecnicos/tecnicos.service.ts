@@ -6,10 +6,10 @@ import { Tecnico, Prisma } from '@prisma/client';
 export class TecnicosService {
   constructor(private prisma: PrismaService) {}
 
-  tecnico(
+  async tecnico(
     tecnicoWhereUniqueInput: Prisma.TecnicoWhereUniqueInput
   ): Promise<Tecnico | null> {
-    return this.prisma.tecnico.findUnique({
+    const tecnico = await this.prisma.tecnico.findUnique({
       where: tecnicoWhereUniqueInput,
       include: {
         TecnicosBitacoras: {
@@ -19,9 +19,14 @@ export class TecnicosService {
         },
       },
     });
+
+    tecnico['fecha_nacimiento_string'] =
+      tecnico.fecha_nacimiento.toLocaleDateString('es-MX');
+
+    return tecnico;
   }
 
-  tecnicos(params: {
+  async tecnicos(params: {
     skip?: number;
     take?: number;
     cursor?: Prisma.TecnicoWhereUniqueInput;
@@ -29,7 +34,7 @@ export class TecnicosService {
     orderBy?: Prisma.TecnicoOrderByWithRelationInput;
   }): Promise<Tecnico[]> {
     const { skip, take, cursor, where, orderBy } = params;
-    return this.prisma.tecnico.findMany({
+    const tecnicos = await this.prisma.tecnico.findMany({
       skip,
       take,
       cursor,
@@ -43,6 +48,14 @@ export class TecnicosService {
         },
       },
     });
+
+    const result = tecnicos.map((tecnico) => {
+      tecnico['fecha_nacimiento_string'] =
+        tecnico.fecha_nacimiento.toLocaleDateString('es-MX');
+      return tecnico;
+    });
+
+    return result;
   }
 
   createTecnico(data: Prisma.TecnicoCreateInput): Promise<Tecnico> {
