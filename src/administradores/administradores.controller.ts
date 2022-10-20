@@ -8,10 +8,12 @@ import {
   Delete,
   HttpStatus,
   HttpException,
+  UseGuards,
 } from '@nestjs/common';
 import { AdministradoresService } from './administradores.service';
 import { CreateAdministradorDto } from './dto/create-administrador.dto';
 import { UpdateAdministradorDto } from './dto/update-administrador.dto';
+import { AuthGuard } from '@nestjs/passport';
 
 /**
  * Clase controlador de administradores que define las rutas del path 'administradores' en la url
@@ -42,6 +44,7 @@ export class AdministradoresController {
    * Función findAll para la acción HTTP GET en la ruta base
    * @returns Un arreglo de todos los administradores en JSON
    */
+  @UseGuards(AuthGuard('jwt'))
   @Get()
   findAll() {
     return this.administradoresService.administradores({});
