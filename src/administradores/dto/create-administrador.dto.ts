@@ -30,7 +30,7 @@ export class CreateAdministradorDto {
    * Fecha de nacimiento del administrador
    */
   @IsDateString()
-  fecha_nacimiento: Date;
+  fecha_nacimiento: string;
 
   /**
    * Telefono del administrador
@@ -47,4 +47,8 @@ export class CreateAdministradorDto {
 
   @IsEmail()
   email: string;
+
+  @IsString()
+  @IsNotEmpty()
+  password: string;
 }

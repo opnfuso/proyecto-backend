@@ -1,4 +1,5 @@
 import { PartialType } from '@nestjs/mapped-types';
+import { IsString } from 'class-validator';
 import { CreateAdministradorDto } from './create-administrador.dto';
 
 /**
@@ -6,4 +7,7 @@ import { CreateAdministradorDto } from './create-administrador.dto';
  */
 export class UpdateAdministradorDto extends PartialType(
   CreateAdministradorDto
-) {}
+) {
+  @IsString()
+  password?: string;
+}

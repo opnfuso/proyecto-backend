@@ -83,6 +83,7 @@ export class AdministradoresController {
   ) {
     return this.administradoresService.updateAdministrador({
       data: updateAdministradorDto,
+      data2: updateAdministradorDto,
       where: { id: Number(id) },
     });
   }

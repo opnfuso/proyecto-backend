@@ -1,7 +1,8 @@
-import { Injectable } from '@nestjs/common';
+import { HttpException, HttpStatus, Injectable } from '@nestjs/common';
 import { PrismaService } from '../prisma.service';
 import { Administrador, Prisma } from '@prisma/client';
-import { ManagementClient } from 'auth0';
+import { AppMetadata, ManagementClient, User, UserMetadata } from 'auth0';
+import { UpdateAdministradorDto } from './dto/update-administrador.dto';
 
 /**
  * Clase para la manipulación de la BD en el modulo administrador
@@ -81,15 +82,54 @@ export class AdministradoresService {
    * @param params Parametros para la edición del administrador como los datos y el id
    * @returns El administrador con las ediciones
    */
-  updateAdministrador(params: {
+  async updateAdministrador(params: {
     where: Prisma.AdministradorWhereUniqueInput;
     data: Prisma.AdministradorUpdateInput;
+    data2: UpdateAdministradorDto;
   }): Promise<Administrador> {
-    const { where, data } = params;
-    return this.prisma.administrador.update({
-      data,
-      where,
+    const { where, data, data2 } = params;
+
+    data.fecha_nacimiento = new Date(data2.fecha_nacimiento);
+
+    const management = new ManagementClient({
+      domain: process.env.AUTH0_API_URL,
+      token: process.env.AUTH0_API_TOKEN,
+      audience: process.env.AUTH0_AUDIENCE,
     });
+
+    if (typeof data.email === 'string') {
+      const user = await management.getUsersByEmail(data.email);
+
+      if (data2.password.length > 0) {
+        await management.updateUser(
+          { id: user[0].user_id },
+          { email: data.email, password: data2.password }
+        );
+      } else {
+        await management.updateUser(
+          { id: user[0].user_id },
+          { email: data.email }
+        );
+      }
+
+      const update: Prisma.AdministradorUpdateInput = {
+        apellidos: data.apellidos,
+        email: data.email,
+        fecha_nacimiento: data.fecha_nacimiento,
+        nombres: data.nombres,
+        telefono: data.telefono,
+      };
+
+      return this.prisma.administrador.update({
+        data: update,
+        where,
+      });
+    }
+
+    throw new HttpException(
+      'Internal Server Error',
+      HttpStatus.INTERNAL_SERVER_ERROR
+    );
   }
 
   /**
