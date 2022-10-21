@@ -1,7 +1,7 @@
 import { Injectable } from '@nestjs/common';
 import { PrismaService } from '../prisma.service';
 import { Administrador, Prisma } from '@prisma/client';
-import axios from 'axios';
+import { ManagementClient } from 'auth0';
 
 /**
  * Clase para la manipulación de la BD en el modulo administrador

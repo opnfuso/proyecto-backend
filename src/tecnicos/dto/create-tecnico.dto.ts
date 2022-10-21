@@ -5,6 +5,7 @@ import {
   IsPhoneNumber,
   IsOptional,
   IsBoolean,
+  IsEmail,
 } from 'class-validator';
 
 export class CreateTecnicoDto {
@@ -25,4 +26,7 @@ export class CreateTecnicoDto {
   @IsOptional()
   @IsBoolean()
   activo: boolean;
+
+  @IsEmail()
+  email: string;
 }

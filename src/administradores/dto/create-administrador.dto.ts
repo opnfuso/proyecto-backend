@@ -1,6 +1,7 @@
 import {
   IsBoolean,
   IsDateString,
+  IsEmail,
   IsNotEmpty,
   IsOptional,
   IsPhoneNumber,
@@ -43,4 +44,7 @@ export class CreateAdministradorDto {
   @IsOptional()
   @IsBoolean()
   activo: boolean;
+
+  @IsEmail()
+  email: string;
 }
