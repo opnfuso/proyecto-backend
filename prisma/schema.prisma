@@ -16,6 +16,7 @@ model Administrador {
   apellidos        String   @db.VarChar(60)
   fecha_nacimiento DateTime @db.Date()
   telefono         String   @db.VarChar(13)
+  email            String   @db.VarChar(30)
 }
 
 model Tecnico {
@@ -25,6 +26,7 @@ model Tecnico {
   fecha_nacimiento  DateTime            @db.Date()
   telefono          String              @db.VarChar(13)
   activo            Boolean             @default(true)
+  email             String              @db.VarChar(30)
   TecnicosBitacoras TecnicosBitacoras[]
 }
 

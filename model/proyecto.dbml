@@ -9,6 +9,7 @@ Table administradores {
   apellidos varchar(60) [not null, Note: 'Apellidos del administrador']
   fecha_nacimiento date [not null, Note: 'Fecha de nacimiento del administrador en formato: yyyy-mm-dd']
   telefono varchar(13) [not null, Note: 'Número de telefono del administrador']
+  email varchar(30) [not null, Note: 'Email del administrador']
   Note: 'Tabla que contiene la información de los administradores'
 }
 
@@ -19,6 +20,7 @@ Table tecnicos {
   fecha_nacimiento date [not null, Note: 'Fecha de nacimiento del administrador en formato: yyyy-mm-dd']
   telefono varchar(13) [not null, Note: 'Número del telefono del técnico']
   activo boolean [not null, default: true, Note: 'Indicador del estado activo o inactivo del técnico']
+  email varchar(30) [not null, Note: 'Email del tecnico']
   Note: 'Tabla que contiene la información de los técnicos'
 }
 
