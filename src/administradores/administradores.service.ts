@@ -1,8 +1,9 @@
 import { HttpException, HttpStatus, Injectable } from '@nestjs/common';
 import { PrismaService } from '../prisma.service';
 import { Administrador, Prisma } from '@prisma/client';
-import { AppMetadata, ManagementClient, User, UserMetadata } from 'auth0';
+import { ManagementClient } from 'auth0';
 import { UpdateAdministradorDto } from './dto/update-administrador.dto';
+import { CreateAdministradorDto } from './dto/create-administrador.dto';
 
 /**
  * Clase para la manipulación de la BD en el modulo administrador
@@ -68,12 +69,35 @@ export class AdministradoresService {
    * @param data Datos para la creación del nuevo administrador
    * @returns El administrador creado
    */
-  createAdministrador(
-    data: Prisma.AdministradorCreateInput
+  async createAdministrador(
+    data: Prisma.AdministradorCreateInput,
+    data2: CreateAdministradorDto
   ): Promise<Administrador> {
     data.fecha_nacimiento = new Date(data.fecha_nacimiento);
+
+    const management = new ManagementClient({
+      domain: process.env.AUTH0_API_URL,
+      token: process.env.AUTH0_API_TOKEN,
+      clientId: process.env.AUTH0_CLIENT_ID,
+      clientSecret: process.env.AUTH0_CLIENT_SECRET,
+    });
+
+    await management.createUser({
+      connection: process.env.AUTH0_CONNECTION,
+      email: data2.email,
+      password: data2.password,
+    });
+
+    const update: Prisma.AdministradorCreateInput = {
+      apellidos: data.apellidos,
+      email: data.email,
+      fecha_nacimiento: data.fecha_nacimiento,
+      nombres: data.nombres,
+      telefono: data.telefono,
+    };
+
     return this.prisma.administrador.create({
-      data,
+      data: update,
     });
   }
 
@@ -94,7 +118,8 @@ export class AdministradoresService {
     const management = new ManagementClient({
       domain: process.env.AUTH0_API_URL,
       token: process.env.AUTH0_API_TOKEN,
-      audience: process.env.AUTH0_AUDIENCE,
+      clientId: process.env.AUTH0_CLIENT_ID,
+      clientSecret: process.env.AUTH0_CLIENT_SECRET,
     });
 
     if (typeof data.email === 'string') {

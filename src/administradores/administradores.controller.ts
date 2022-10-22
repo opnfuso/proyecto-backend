@@ -38,6 +38,7 @@ export class AdministradoresController {
   @Post()
   create(@Body() createAdministradorDto: CreateAdministradorDto) {
     return this.administradoresService.createAdministrador(
+      createAdministradorDto,
       createAdministradorDto
     );
   }
