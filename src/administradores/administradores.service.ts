@@ -164,16 +164,11 @@ export class AdministradoresService {
     );
   }
 
-  /**
-   * Función para eliminar un administrador por Id
-   * @param where Id del adminstrador a ser eliminado
-   * @returns Un objeto vacío al eliminar el administrador
-   */
-  removeAdministrador(
-    where: Prisma.AdministradorWhereUniqueInput
-  ): Promise<Administrador> {
-    return this.prisma.administrador.delete({
-      where,
-    });
-  }
+  // removeAdministrador(
+  //   where: Prisma.AdministradorWhereUniqueInput
+  // ): Promise<Administrador> {
+  //   return this.prisma.administrador.delete({
+  //     where,
+  //   });
+  // }
 }

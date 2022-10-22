@@ -89,13 +89,8 @@ export class AdministradoresController {
     });
   }
 
-  /**
-   * Función remove para la acción HTTP DELETE de la ruta base con un parametro
-   * @param id Identificador del adminstrador a eliminar
-   * @returns El administrador eliminado
-   */
-  @Delete(':id')
-  remove(@Param('id') id: string) {
-    return this.administradoresService.removeAdministrador({ id: Number(id) });
-  }
+  // @Delete(':id')
+  // remove(@Param('id') id: string) {
+  //   return this.administradoresService.removeAdministrador({ id: Number(id) });
+  // }
 }
