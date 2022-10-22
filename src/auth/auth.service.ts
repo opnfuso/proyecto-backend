@@ -7,7 +7,8 @@ export class AuthService {
     const management = new ManagementClient({
       domain: process.env.AUTH0_API_URL,
       token: process.env.AUTH0_API_TOKEN,
-      audience: process.env.AUTH0_AUDIENCE,
+      clientId: process.env.AUTH0_CLIENT_ID,
+      clientSecret: process.env.AUTH0_CLIENT_SECRET,
     });
 
     const roles = await management.getUserRoles({ id: query.userId });
