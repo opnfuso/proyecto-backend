@@ -82,13 +82,18 @@ export class AdministradoresService {
       clientSecret: process.env.AUTH0_CLIENT_SECRET,
     });
 
-    await management.createUser({
+    const user = await management.createUser({
       connection: process.env.AUTH0_CONNECTION,
       email: data2.email,
       password: data2.password,
     });
 
-    const update: Prisma.AdministradorCreateInput = {
+    await management.assignRolestoUser(
+      { id: user.user_id },
+      { roles: ['rol_VPc0pduchbzepQeY'] }
+    );
+
+    const create: Prisma.AdministradorCreateInput = {
       apellidos: data.apellidos,
       email: data.email,
       fecha_nacimiento: data.fecha_nacimiento,
@@ -97,8 +102,10 @@ export class AdministradoresService {
     };
 
     return this.prisma.administrador.create({
-      data: update,
+      data: create,
     });
+
+    // return this.prisma.administrador.findUnique({ where: { id: 3 } });
   }
 
   /**
