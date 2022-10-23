@@ -32,11 +32,21 @@ export class DispositivosController {
     const dispositivo = await this.dispositivosService.dispositivo({
       imei: id,
     });
+
     if (dispositivo === null) {
       throw new HttpException('Not Found', HttpStatus.NOT_FOUND);
     }
 
     return dispositivo;
+  }
+
+  @Get('/cliente/:id')
+  async findAllByClienteId(@Param('id') id: string) {
+    const dispositivos = await this.dispositivosService.dispositivos({
+      where: { id_cliente: +id },
+    });
+
+    return dispositivos;
   }
 
   @Patch(':id')
