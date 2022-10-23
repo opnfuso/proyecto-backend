@@ -6,18 +6,23 @@ import { Dispositivo, Prisma } from '@prisma/client';
 export class DispositivosService {
   constructor(private prisma: PrismaService) {}
 
-  dispositivo(
+  async dispositivo(
     dispositivoWhereUniqueInput: Prisma.DispositivoWhereUniqueInput
   ): Promise<Dispositivo | null> {
-    return this.prisma.dispositivo.findUnique({
+    const dispositivo = await this.prisma.dispositivo.findUnique({
       where: dispositivoWhereUniqueInput,
       include: {
         cliente: true,
       },
     });
+
+    dispositivo['fecha_recibido_string'] =
+      dispositivo.fecha_recibido.toLocaleDateString('es-MX');
+
+    return dispositivo;
   }
 
-  dispositivos(params: {
+  async dispositivos(params: {
     skip?: number;
     take?: number;
     cursor?: Prisma.DispositivoWhereUniqueInput;
@@ -25,7 +30,7 @@ export class DispositivosService {
     orderBy?: Prisma.DispositivoOrderByWithRelationInput;
   }): Promise<Dispositivo[]> {
     const { skip, take, cursor, where, orderBy } = params;
-    return this.prisma.dispositivo.findMany({
+    const dispositivos = await this.prisma.dispositivo.findMany({
       skip,
       take,
       cursor,
@@ -35,6 +40,14 @@ export class DispositivosService {
       },
       orderBy,
     });
+
+    const result = dispositivos.map((dispositivo) => {
+      dispositivo['fecha_recibido_string'] =
+        dispositivo.fecha_recibido.toLocaleDateString('es-MX');
+      return dispositivo;
+    });
+
+    return result;
   }
 
   createDispositivo(data: Prisma.DispositivoCreateInput): Promise<Dispositivo> {
