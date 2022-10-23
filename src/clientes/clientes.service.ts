@@ -1,4 +1,4 @@
-import { Injectable } from '@nestjs/common';
+import { HttpException, HttpStatus, Injectable } from '@nestjs/common';
 import { PrismaService } from '../prisma.service';
 import { Cliente, Prisma } from '@prisma/client';
 
@@ -60,10 +60,19 @@ export class ClientesService {
     data: Prisma.ClienteUpdateInput;
   }): Promise<Cliente> {
     const { where, data } = params;
-    return this.prisma.cliente.update({
-      data,
-      where,
-    });
+    if (typeof data.fecha_nacimiento === 'string') {
+      data.fecha_nacimiento = new Date(data.fecha_nacimiento);
+
+      return this.prisma.cliente.update({
+        data,
+        where,
+      });
+    }
+
+    throw new HttpException(
+      'Internal Server Error',
+      HttpStatus.INTERNAL_SERVER_ERROR
+    );
   }
 
   removeCliente(where: Prisma.ClienteWhereUniqueInput): Promise<Cliente> {
