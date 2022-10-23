@@ -8,6 +8,7 @@ import {
   Delete,
   HttpException,
   HttpStatus,
+  Query,
 } from '@nestjs/common';
 import { ManualReparacionesService } from './manual-reparaciones.service';
 import { CreateManualReparacionDto } from './dto/create-manual-reparacion.dto';
@@ -27,7 +28,12 @@ export class ManualReparacionesController {
   }
 
   @Get()
-  findAll() {
+  findAll(@Query('titulo') titulo: string) {
+    if (titulo) {
+      return this.manualReparacionesService.manualReparacioness({
+        where: { titulo: { contains: titulo, mode: 'insensitive' } },
+      });
+    }
     return this.manualReparacionesService.manualReparacioness({});
   }
 
