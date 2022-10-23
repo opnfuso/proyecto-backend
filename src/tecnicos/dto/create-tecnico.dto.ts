@@ -29,4 +29,8 @@ export class CreateTecnicoDto {
 
   @IsEmail()
   email: string;
+
+  @IsString()
+  @IsNotEmpty()
+  password: string;
 }

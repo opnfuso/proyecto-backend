@@ -19,7 +19,10 @@ export class TecnicosController {
 
   @Post()
   create(@Body() createTecnicoDto: CreateTecnicoDto) {
-    return this.tecnicosService.createTecnico(createTecnicoDto);
+    return this.tecnicosService.createTecnico(
+      createTecnicoDto,
+      createTecnicoDto
+    );
   }
 
   @Get()
@@ -43,6 +46,7 @@ export class TecnicosController {
   update(@Param('id') id: string, @Body() updateTecnicoDto: UpdateTecnicoDto) {
     return this.tecnicosService.updateTecnico({
       data: updateTecnicoDto,
+      data2: updateTecnicoDto,
       where: { id: Number(id) },
     });
   }
