@@ -128,7 +128,8 @@ export class AdministradoresService {
     });
 
     if (typeof data.email === 'string') {
-      const user = await management.getUsersByEmail(data.email);
+      const oldUser = await this.prisma.administrador.findUnique({ where });
+      const user = await management.getUsersByEmail(oldUser.email);
 
       if (data2.password.length > 0) {
         await management.updateUser(
