@@ -51,6 +51,11 @@ export class TecnicosController {
     });
   }
 
+  @Patch('/activate/:id')
+  activate(@Param('id') id: string) {
+    return this.tecnicosService.activateTecnico({ id: Number(id) });
+  }
+
   @Delete(':id')
   remove(@Param('id') id: string) {
     return this.tecnicosService.removeTecnico({ id: Number(id) });

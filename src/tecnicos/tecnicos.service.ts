@@ -145,8 +145,42 @@ export class TecnicosService {
     );
   }
 
-  removeTecnico(where: Prisma.TecnicoWhereUniqueInput): Promise<Tecnico> {
-    return this.prisma.tecnico.delete({
+  async removeTecnico(where: Prisma.TecnicoWhereUniqueInput): Promise<Tecnico> {
+    const tecnico = await this.prisma.tecnico.findUnique({ where });
+
+    const management = new ManagementClient({
+      domain: process.env.AUTH0_API_URL,
+      clientId: process.env.AUTH0_CLIENT_ID,
+      clientSecret: process.env.AUTH0_CLIENT_SECRET,
+    });
+
+    const user = await management.getUsersByEmail(tecnico.email);
+
+    await management.updateUser({ id: user[0].user_id }, { blocked: true });
+
+    return await this.prisma.tecnico.update({
+      data: { activo: false },
+      where,
+    });
+  }
+
+  async activateTecnico(
+    where: Prisma.TecnicoWhereUniqueInput
+  ): Promise<Tecnico> {
+    const tecnico = await this.prisma.tecnico.findUnique({ where });
+
+    const management = new ManagementClient({
+      domain: process.env.AUTH0_API_URL,
+      clientId: process.env.AUTH0_CLIENT_ID,
+      clientSecret: process.env.AUTH0_CLIENT_SECRET,
+    });
+
+    const user = await management.getUsersByEmail(tecnico.email);
+
+    await management.updateUser({ id: user[0].user_id }, { blocked: false });
+
+    return await this.prisma.tecnico.update({
+      data: { activo: true },
       where,
     });
   }
