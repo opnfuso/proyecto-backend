@@ -59,7 +59,7 @@
     "_id": {
       "$oid": "635c2ecf3e91979d9b09d98f"
     },
-    "text": "¿Qué pieza identifica?"
+    "text": "¿Qué pieza está dañada?"
   },
   // Android
   {
@@ -120,6 +120,6 @@
     "_id": {
       "$oid": "635c2ecf3e91979d9b09d999"
     },
-    "text": "¿Qué pieza identifica?"
+    "text": "¿Qué pieza está dañada?"
   }
 ]
