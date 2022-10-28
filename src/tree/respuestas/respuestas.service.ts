@@ -25,7 +25,10 @@ export class RespuestasService {
   }
 
   findAllByPreguntaId(id: string) {
-    return this.respuestaModel.find({ pregunta: id }).exec();
+    return this.respuestaModel
+      .find({ pregunta: id })
+      .populate('pregunta')
+      .exec();
   }
 
   update(id: string, updateRespuestaDto: UpdateRespuestaDto) {
