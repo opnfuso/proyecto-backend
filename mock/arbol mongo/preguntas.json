@@ -1,0 +1,125 @@
+[
+  {
+    "_id": {
+      "$oid": "633b146d4db46330d41ad1c0"
+    },
+    "text": "¿El dispositivo es iOS o Android? ",
+    "__v": 0
+  },
+  //iOS
+  {
+    "_id": {
+      "$oid": "635c2ecf3e91979d9b09d987"
+    },
+    "text": "¿Identifica el problema como software o hardware?"
+  },
+  {
+    "_id": {
+      "$oid": "635c2ecf3e91979d9b09d988"
+    },
+    "text": "¿El dispositivo enciende?"
+  },
+  {
+    "_id": {
+      "$oid": "635c2ecf3e91979d9b09d989"
+    },
+    "text": "¿Qué nota al encender el dispositivo?"
+  },
+  {
+    "_id": {
+      "$oid": "635c2ecf3e91979d9b09d98a"
+    },
+    "text": "¿Si lo conecta a la corriente enciende?"
+  },
+  {
+    "_id": {
+      "$oid": "635c2ecf3e91979d9b09d98b"
+    },
+    "text": "¿Identifica alguna pieza que no funcione correctamente?"
+  },
+  {
+    "_id": {
+      "$oid": "635c2ecf3e91979d9b09d98c"
+    },
+    "text": "¿Qué pieza identifica?"
+  },
+  {
+    "_id": {
+      "$oid": "635c2ecf3e91979d9b09d98d"
+    },
+    "text": "¿Qué cámara?"
+  },
+  {
+    "_id": {
+      "$oid": "635c2ecf3e91979d9b09d98e"
+    },
+    "text": "Al abrir el dispositivo, ¿Identifica alguna pieza dañada?"
+  },
+  {
+    "_id": {
+      "$oid": "635c2ecf3e91979d9b09d98f"
+    },
+    "text": "¿Qué pieza identifica?"
+  },
+  // Android
+  {
+    "_id": {
+      "$oid": "635c2ecf3e91979d9b09d990"
+    },
+    "text": "¿Identifica el problema como software o hardware?"
+  },
+  {
+    "_id": {
+      "$oid": "635c2ecf3e91979d9b09d991"
+    },
+    "text": "¿El dispositivo enciende?"
+  },
+  {
+    "_id": {
+      "$oid": "635c2ecf3e91979d9b09d992"
+    },
+    "text": "¿Qué nota al encender el dispositivo?"
+  },
+  {
+    "_id": {
+      "$oid": "635c2ecf3e91979d9b09d993"
+    },
+    "text": "¿Tiene soporte para microSD?"
+  },
+  {
+    "_id": {
+      "$oid": "635c2ecf3e91979d9b09d994"
+    },
+    "text": "¿Si lo conecta a la corriente enciende?"
+  },
+  {
+    "_id": {
+      "$oid": "635c2ecf3e91979d9b09d995"
+    },
+    "text": "¿Identifica alguna pieza que no funcione correctamente?"
+  },
+  {
+    "_id": {
+      "$oid": "635c2ecf3e91979d9b09d996"
+    },
+    "text": "¿Qué pieza identifica?"
+  },
+  {
+    "_id": {
+      "$oid": "635c2ecf3e91979d9b09d997"
+    },
+    "text": "¿Qué cámara?"
+  },
+  {
+    "_id": {
+      "$oid": "635c2ecf3e91979d9b09d998"
+    },
+    "text": "Al abrir el dispositivo, ¿Identifica alguna pieza dañada?"
+  },
+  {
+    "_id": {
+      "$oid": "635c2ecf3e91979d9b09d999"
+    },
+    "text": "¿Qué pieza identifica?"
+  }
+]

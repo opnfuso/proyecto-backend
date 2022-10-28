@@ -1,12 +1,48 @@
 [
   {
-    "text": "Identifica el problema como software o hardware"
+    "id": "633b146d4db46330d41ad1c0",
+    "text": "¿Identifica el problema como software o hardware?"
+  },
+  // iOS
+  {
+    "text": "¿Identifica el problema como software o hardware?"
   },
   {
     "text": "¿El dispositivo enciende?"
   },
   {
     "text": "¿Qué nota al encender el dispositivo?"
+  },
+  {
+    "text": "¿Si lo conecta a la corriente enciende?"
+  },
+  {
+    "text": "¿Identifica alguna pieza que no funcione correctamente?"
+  },
+  {
+    "text": "¿Qué pieza identifica?"
+  },
+  {
+    "text": "¿Qué cámara?"
+  },
+  {
+    "text": "Al abrir el dispositivo, ¿Identifica alguna pieza dañada?"
+  },
+  {
+    "text": "¿Qué pieza identifica?"
+  },
+  // Android
+  {
+    "text": "¿Identifica el problema como software o hardware?"
+  },
+  {
+    "text": "¿El dispositivo enciende?"
+  },
+  {
+    "text": "¿Qué nota al encender el dispositivo?"
+  },
+  {
+    "text": "¿Tiene soporte para microSD?"
   },
   {
     "text": "¿Si lo conecta a la corriente enciende?"
