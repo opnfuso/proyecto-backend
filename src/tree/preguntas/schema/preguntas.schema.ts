@@ -7,6 +7,9 @@ export type PreguntaDocument = Document & Pregunta;
 export class Pregunta {
   @Prop({ required: true })
   text: string;
+
+  @Prop()
+  type: string;
 }
 
 export const PreguntaSchema = SchemaFactory.createForClass(Pregunta);
