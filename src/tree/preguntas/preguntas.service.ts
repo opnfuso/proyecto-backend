@@ -17,7 +17,7 @@ export class PreguntasService {
   }
 
   findAll() {
-    return this.preguntaModel.find().populate('respuestas').exec();
+    return this.preguntaModel.find().exec();
   }
 
   findOne(id: string) {

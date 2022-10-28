@@ -21,7 +21,11 @@ export class RespuestasService {
   }
 
   findOne(id: string) {
-    return this.respuestaModel.findById(id);
+    return this.respuestaModel.findById(id).exec();
+  }
+
+  findAllByPreguntaId(id: string) {
+    return this.respuestaModel.find({ pregunta: id }).exec();
   }
 
   update(id: string, updateRespuestaDto: UpdateRespuestaDto) {

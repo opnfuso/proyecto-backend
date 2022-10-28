@@ -25,6 +25,11 @@ export class RespuestasController {
     return this.respuestaService.findAll();
   }
 
+  @Get('pregunta/:id')
+  findByPreguntaId(@Param('id') id: string) {
+    return this.respuestaService.findAllByPreguntaId(id);
+  }
+
   @Get(':id')
   findOne(@Param('id') id: string) {
     return this.respuestaService.findOne(id);
