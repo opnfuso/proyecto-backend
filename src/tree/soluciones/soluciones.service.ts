@@ -24,6 +24,13 @@ export class SolucionesService {
     return this.solucionModel.findById(id);
   }
 
+  findAllByRespuestaId(id: string) {
+    return this.solucionModel
+      .find({ respuesta: id })
+      .populate('respuesta')
+      .exec();
+  }
+
   update(id: string, updateSolucionDto: UpdateSolucionDto) {
     return this.solucionModel.findByIdAndUpdate(id, updateSolucionDto);
   }
