@@ -42,6 +42,11 @@ export class BitacorasController {
     return bitacora;
   }
 
+  @Get('dispositivo/:id')
+  findAllbyDispositivoId(@Param('id') id: string) {
+    return this.bitacorasService.bitacoras({ where: { imei_dispositivo: id } });
+  }
+
   @Patch(':id')
   update(
     @Param('id') id: string,
