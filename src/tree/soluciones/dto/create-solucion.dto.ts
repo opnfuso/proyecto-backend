@@ -3,7 +3,7 @@ import { Types } from 'mongoose';
 
 export class CreateSolucionDto {
   @IsMongoId()
-  pregunta: Types.ObjectId;
+  respuesta: Types.ObjectId;
 
   @IsString()
   @IsNotEmpty()
