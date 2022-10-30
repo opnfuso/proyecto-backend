@@ -59,6 +59,7 @@ model Bitacora {
   costo                 Float?                  @db.Real()
   notas                 String?                 @db.Text()
   terminado             Boolean                 @default(false)
+  reparado              Boolean                 @default(false)
   TecnicosBitacoras     TecnicosBitacoras[]
   ReparacionesBitacoras ReparacionesBitacoras[]
 }

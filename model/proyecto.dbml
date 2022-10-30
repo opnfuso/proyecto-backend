@@ -58,6 +58,7 @@ Table bitacoras {
   costo double [Note: 'Costo final de la reparación']
   notas text [Note: 'Notas opcionales sobre la reparación']
   terminado boolean [not null, default: false, Note: 'Indicador de terminado de la bitacora']
+  reparado boolean [not null, default: false, Note: 'Indicador de si el dispositivo se pudo terminar de la bitacora']
   Note: 'Tabla que contiene la información de las bitacoras'
 }
 

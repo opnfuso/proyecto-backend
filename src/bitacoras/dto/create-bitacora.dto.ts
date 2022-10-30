@@ -34,6 +34,11 @@ export class CreateBitacoraDto {
   @IsBoolean()
   terminado: boolean;
 
+  /**Booleano que indica si la reparación fue exitosa */
+  @IsOptional()
+  @IsBoolean()
+  reparado: boolean;
+
   /**Dispositivo de la bitacora */
   dispositivo: Prisma.DispositivoCreateNestedOneWithoutBitacoraInput;
 }
