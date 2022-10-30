@@ -1,4 +1,4 @@
-import { Injectable } from '@nestjs/common';
+import { HttpException, HttpStatus, Injectable } from '@nestjs/common';
 import { PrismaService } from '../prisma.service';
 import { Bitacora, Prisma } from '@prisma/client';
 
@@ -53,7 +53,11 @@ export class BitacorasService {
       cursor,
       where,
       include: {
-        dispositivo: true,
+        dispositivo: {
+          include: {
+            cliente: true,
+          },
+        },
         TecnicosBitacoras: {
           include: {
             tecnico: true,
@@ -81,10 +85,19 @@ export class BitacorasService {
     data: Prisma.BitacoraUpdateInput;
   }): Promise<Bitacora> {
     const { where, data } = params;
-    return this.prisma.bitacora.update({
-      data,
-      where,
-    });
+    if (typeof data.fecha_salida === 'string') {
+      data.fecha_salida = new Date(data.fecha_salida);
+
+      return this.prisma.bitacora.update({
+        data,
+        where,
+      });
+    }
+
+    throw new HttpException(
+      'Internal Server Error',
+      HttpStatus.INTERNAL_SERVER_ERROR
+    );
   }
 
   removeBitacora(where: Prisma.BitacoraWhereUniqueInput): Promise<Bitacora> {
