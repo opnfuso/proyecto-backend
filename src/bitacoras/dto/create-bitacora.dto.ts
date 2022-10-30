@@ -21,6 +21,7 @@ export class CreateBitacoraDto {
   fecha_salida: string;
 
   /**Costo final de la reparación */
+  @IsOptional()
   @IsNumber()
   costo: number;
 
