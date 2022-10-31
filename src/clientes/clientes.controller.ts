@@ -47,6 +47,11 @@ export class ClientesController {
     });
   }
 
+  @Patch('/activate/:id')
+  activate(@Param('id') id: string) {
+    return this.clientesService.activateTecnico({ id: Number(id) });
+  }
+
   @Delete(':id')
   remove(@Param('id') id: string) {
     return this.clientesService.removeCliente({ id: Number(id) });

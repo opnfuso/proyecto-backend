@@ -37,6 +37,7 @@ model Cliente {
   fecha_nacimiento DateTime      @db.Date()
   telefono         String        @db.VarChar(13)
   domicilio        String        @db.VarChar(100)
+  activo           Boolean       @default(true)
   Dispositivo      Dispositivo[]
 }
 

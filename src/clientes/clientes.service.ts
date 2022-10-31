@@ -1,6 +1,7 @@
 import { HttpException, HttpStatus, Injectable } from '@nestjs/common';
 import { PrismaService } from '../prisma.service';
 import { Cliente, Prisma } from '@prisma/client';
+import { ManagementClient } from 'auth0';
 
 @Injectable()
 export class ClientesService {
@@ -75,8 +76,18 @@ export class ClientesService {
     );
   }
 
-  removeCliente(where: Prisma.ClienteWhereUniqueInput): Promise<Cliente> {
-    return this.prisma.cliente.delete({
+  async removeCliente(where: Prisma.ClienteWhereUniqueInput): Promise<Cliente> {
+    return await this.prisma.cliente.update({
+      data: { activo: false },
+      where,
+    });
+  }
+
+  async activateTecnico(
+    where: Prisma.ClienteWhereUniqueInput
+  ): Promise<Cliente> {
+    return await this.prisma.cliente.update({
+      data: { activo: true },
       where,
     });
   }
