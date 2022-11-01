@@ -31,6 +31,7 @@ Table clientes {
   fecha_nacimiento date [not null, Note: 'Fecha de nacimiento del cliente en formato: yyyy-mm-dd']
   telefono varchar(13) [not null, Note: 'Número del telefono del cliente']
   domicilio varchar(100) [not null, Note: 'Domicilio del cliente']
+  activo boolean [not null, default: true, Note: 'Indicador del estado activo o inactivo del cliente']
   Note: 'Tabla que contiene la información de los clientes'
 }
 
