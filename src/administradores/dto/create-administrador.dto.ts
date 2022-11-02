@@ -8,6 +8,11 @@ import {
   IsString,
 } from 'class-validator';
 
+import{
+  Unique,
+} from 'typeorm';
+
+@Unique(['email'])
 /**
  * Clase para la validación de datos al crear el Administrador
  */
@@ -52,3 +57,4 @@ export class CreateAdministradorDto {
   @IsNotEmpty()
   password: string;
 }
+
