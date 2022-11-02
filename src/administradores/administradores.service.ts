@@ -100,25 +100,9 @@ export class AdministradoresService {
       telefono: data.telefono,
     };
 
-    try {
-
-      return this.prisma.administrador.create({
-        data: create,
-      });
-
-      
-    }catch(error){
-      
-      if(error.code === '23505'){
-        throw new HttpException(
-          'El email ya esta registrado',
-          HttpStatus.BAD_REQUEST
-        );
-
-    }
-  }
-
-    
+    return this.prisma.administrador.create({
+      data: create,
+    });
 
     // return this.prisma.administrador.findUnique({ where: { id: 3 } });
   }
