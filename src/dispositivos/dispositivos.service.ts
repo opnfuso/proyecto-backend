@@ -50,11 +50,20 @@ export class DispositivosService {
     return result;
   }
 
-  createDispositivo(data: Prisma.DispositivoCreateInput): Promise<Dispositivo> {
+  async createDispositivo(
+    data: Prisma.DispositivoCreateInput
+  ): Promise<Dispositivo> {
     data.fecha_recibido = new Date(data.fecha_recibido);
-    return this.prisma.dispositivo.create({
+    const dispositivo = await this.prisma.dispositivo.create({
       data,
     });
+    await this.prisma.bitacora.create({
+      data: {
+        imei_dispositivo: dispositivo.imei,
+      },
+    });
+
+    return dispositivo;
   }
 
   updateDispositivo(params: {
