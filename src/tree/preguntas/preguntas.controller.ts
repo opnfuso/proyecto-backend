@@ -1,6 +1,7 @@
 import { Controller, Get, Post, Patch, Delete } from '@nestjs/common';
 import { Body, Param } from '@nestjs/common/decorators';
 import { CreatePreguntaDto } from './dto/create-pregunta.dto';
+import { SendEmailDto } from './dto/send-email.dto';
 import { UpdatePreguntaDto } from './dto/update-pregunta.dto';
 import { PreguntasService } from './preguntas.service';
 
@@ -11,6 +12,11 @@ export class PreguntasController {
   @Post()
   create(@Body() createPreguntaDto: CreatePreguntaDto) {
     return this.preguntaService.create(createPreguntaDto);
+  }
+
+  @Post('email')
+  sendEmail(@Body() sendEmailDto: SendEmailDto) {
+    return this.preguntaService.sendEmail(sendEmailDto);
   }
 
   @Get()
