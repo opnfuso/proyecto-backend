@@ -18,10 +18,10 @@ export class BitacorasService {
    * @param bitacoraWhereUniqueInput Parametro creado por Prisma para obtener el id desde los parametros de una forma segura
    * @returns La bitacora con id indicado
    */
-  bitacora(
+  async bitacora(
     bitacoraWhereUniqueInput: Prisma.BitacoraWhereUniqueInput
   ): Promise<Bitacora | null> {
-    return this.prisma.bitacora.findUnique({
+    const bitacora = await this.prisma.bitacora.findUnique({
       where: bitacoraWhereUniqueInput,
       include: {
         dispositivo: true,
@@ -37,9 +37,14 @@ export class BitacorasService {
         },
       },
     });
+
+    bitacora['fecha_recibido_string'] =
+      bitacora.fecha_recibido.toLocaleDateString('es-MX');
+
+    return bitacora;
   }
 
-  bitacoras(params: {
+  async bitacoras(params: {
     skip?: number;
     take?: number;
     cursor?: Prisma.BitacoraWhereUniqueInput;
@@ -47,7 +52,7 @@ export class BitacorasService {
     orderBy?: Prisma.BitacoraOrderByWithRelationInput;
   }): Promise<Bitacora[]> {
     const { skip, take, cursor, where, orderBy } = params;
-    return this.prisma.bitacora.findMany({
+    const bitacoras = await this.prisma.bitacora.findMany({
       skip,
       take,
       cursor,
@@ -71,10 +76,19 @@ export class BitacorasService {
       },
       orderBy,
     });
+
+    const result = bitacoras.map((dispositivo) => {
+      dispositivo['fecha_recibido_string'] =
+        dispositivo.fecha_recibido.toLocaleDateString('es-MX');
+      return dispositivo;
+    });
+
+    return result;
   }
 
   createBitacora(data: Prisma.BitacoraCreateInput): Promise<Bitacora> {
     data.fecha_salida = new Date(data.fecha_salida);
+    data.fecha_recibido = new Date(data.fecha_recibido);
     return this.prisma.bitacora.create({
       data,
     });
@@ -85,8 +99,12 @@ export class BitacorasService {
     data: Prisma.BitacoraUpdateInput;
   }): Promise<Bitacora> {
     const { where, data } = params;
-    if (typeof data.fecha_salida === 'string') {
+    if (
+      typeof data.fecha_salida === 'string' &&
+      typeof data.fecha_recibido === 'string'
+    ) {
       data.fecha_salida = new Date(data.fecha_salida);
+      data.fecha_recibido = new Date(data.fecha_recibido);
 
       return this.prisma.bitacora.update({
         data,

@@ -6,23 +6,18 @@ import { Dispositivo, Prisma } from '@prisma/client';
 export class DispositivosService {
   constructor(private prisma: PrismaService) {}
 
-  async dispositivo(
+  dispositivo(
     dispositivoWhereUniqueInput: Prisma.DispositivoWhereUniqueInput
   ): Promise<Dispositivo | null> {
-    const dispositivo = await this.prisma.dispositivo.findUnique({
+    return this.prisma.dispositivo.findUnique({
       where: dispositivoWhereUniqueInput,
       include: {
         cliente: true,
       },
     });
-
-    dispositivo['fecha_recibido_string'] =
-      dispositivo.fecha_recibido.toLocaleDateString('es-MX');
-
-    return dispositivo;
   }
 
-  async dispositivos(params: {
+  dispositivos(params: {
     skip?: number;
     take?: number;
     cursor?: Prisma.DispositivoWhereUniqueInput;
@@ -30,7 +25,7 @@ export class DispositivosService {
     orderBy?: Prisma.DispositivoOrderByWithRelationInput;
   }): Promise<Dispositivo[]> {
     const { skip, take, cursor, where, orderBy } = params;
-    const dispositivos = await this.prisma.dispositivo.findMany({
+    return this.prisma.dispositivo.findMany({
       skip,
       take,
       cursor,
@@ -40,20 +35,11 @@ export class DispositivosService {
       },
       orderBy,
     });
-
-    const result = dispositivos.map((dispositivo) => {
-      dispositivo['fecha_recibido_string'] =
-        dispositivo.fecha_recibido.toLocaleDateString('es-MX');
-      return dispositivo;
-    });
-
-    return result;
   }
 
   async createDispositivo(
     data: Prisma.DispositivoCreateInput
   ): Promise<Dispositivo> {
-    data.fecha_recibido = new Date(data.fecha_recibido);
     const dispositivo = await this.prisma.dispositivo.create({
       data,
     });
@@ -71,19 +57,11 @@ export class DispositivosService {
     data: Prisma.DispositivoUpdateInput;
   }): Promise<Dispositivo> {
     const { where, data } = params;
-    if (typeof data.fecha_recibido === 'string') {
-      data.fecha_recibido = new Date(data.fecha_recibido);
 
-      return this.prisma.dispositivo.update({
-        data,
-        where,
-      });
-    }
-
-    throw new HttpException(
-      'Internal Server Error',
-      HttpStatus.INTERNAL_SERVER_ERROR
-    );
+    return this.prisma.dispositivo.update({
+      data,
+      where,
+    });
   }
 
   removeDispositivo(
