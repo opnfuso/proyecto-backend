@@ -31,6 +31,7 @@ Table clientes {
   fecha_nacimiento date [not null, Note: 'Fecha de nacimiento del cliente en formato: yyyy-mm-dd']
   telefono varchar(13) [not null, Note: 'Número del telefono del cliente']
   domicilio varchar(100) [not null, Note: 'Domicilio del cliente']
+  email varchar(30) [not null, Note: 'Email del cliente']
   activo boolean [not null, default: true, Note: 'Indicador del estado activo o inactivo del cliente']
   Note: 'Tabla que contiene la información de los clientes'
 }
@@ -40,7 +41,6 @@ Table dispostivos {
   modelo varchar(30) [not null, Note: 'Modelo del dispositivo']
   marca varchar(30) [not null, Note: 'Marca del dispositivo']
   numero_serie varchar(60) [not null, Note: 'Número de serie del dispositivo']
-  fecha_recibido date [not null, Note: 'Fecha en la que entró el dipositivo al sistema en formato: yyyy-mm-dd']
   id_cliente integer [not null, Note: 'Identificador del cliente que llevó el dispositivo']
   Note: 'Tabla que contiene la información de los dispositivos'
 }
@@ -57,6 +57,7 @@ Table bitacoras {
   imei_dispositivo integer [not null, Note: 'Imei del dispositivo de la bitacora']
   fecha_salida date [Note: 'Fecha de la salida del dispositivo en formato yyyy-mm-dd']
   costo double [Note: 'Costo final de la reparación']
+  fecha_recibido date [not null, Note: 'Fecha en la que entró la bitacora al sistema en formato: yyyy-mm-dd']
   notas text [Note: 'Notas opcionales sobre la reparación']
   terminado boolean [not null, default: false, Note: 'Indicador de terminado de la bitacora']
   reparado boolean [not null, default: false, Note: 'Indicador de si el dispositivo se pudo terminar de la bitacora']

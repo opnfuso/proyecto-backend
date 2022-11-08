@@ -14,9 +14,6 @@ export class CreateDispositivoDto {
   @IsString()
   numero_serie: string;
 
-  @IsDateString()
-  fecha_recibido: string;
-
   @IsInt()
   id_cliente: number;
 

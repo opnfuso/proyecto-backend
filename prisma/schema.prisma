@@ -37,19 +37,19 @@ model Cliente {
   fecha_nacimiento DateTime      @db.Date()
   telefono         String        @db.VarChar(13)
   domicilio        String        @db.VarChar(100)
+  email            String?       @db.VarChar(30)
   activo           Boolean       @default(true)
   Dispositivo      Dispositivo[]
 }
 
 model Dispositivo {
-  imei           String     @id
-  modelo         String     @db.VarChar(30)
-  marca          String     @db.VarChar(30)
-  numero_serie   String     @db.VarChar(60)
-  fecha_recibido DateTime   @db.Date()
-  cliente        Cliente    @relation(fields: [id_cliente], references: [id])
-  id_cliente     Int
-  Bitacora       Bitacora[]
+  imei         String     @id
+  modelo       String     @db.VarChar(30)
+  marca        String     @db.VarChar(30)
+  numero_serie String     @db.VarChar(60)
+  cliente      Cliente    @relation(fields: [id_cliente], references: [id])
+  id_cliente   Int
+  Bitacora     Bitacora[]
 }
 
 model Bitacora {
@@ -58,6 +58,7 @@ model Bitacora {
   imei_dispositivo      String
   fecha_salida          DateTime?               @db.Date()
   costo                 Float?                  @db.Real()
+  fecha_recibido        DateTime?               @db.Date()
   notas                 String?                 @db.Text()
   terminado             Boolean                 @default(false)
   reparado              Boolean                 @default(false)

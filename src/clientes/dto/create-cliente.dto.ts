@@ -3,6 +3,7 @@ import {
   IsNotEmpty,
   IsDateString,
   IsPhoneNumber,
+  IsEmail,
 } from 'class-validator';
 
 export class CreateClienteDto {
@@ -23,4 +24,7 @@ export class CreateClienteDto {
   @IsString()
   @IsNotEmpty()
   domicilio: string;
+
+  @IsEmail()
+  email: string;
 }
