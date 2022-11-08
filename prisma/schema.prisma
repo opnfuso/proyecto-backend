@@ -37,7 +37,7 @@ model Cliente {
   fecha_nacimiento DateTime      @db.Date()
   telefono         String        @db.VarChar(13)
   domicilio        String        @db.VarChar(100)
-  email            String        @db.VarChar(30)
+  email            String?       @db.VarChar(30)
   activo           Boolean       @default(true)
   Dispositivo      Dispositivo[]
 }
@@ -58,7 +58,7 @@ model Bitacora {
   imei_dispositivo      String
   fecha_salida          DateTime?               @db.Date()
   costo                 Float?                  @db.Real()
-  fecha_recibido        DateTime                @db.Date()
+  fecha_recibido        DateTime?               @db.Date()
   notas                 String?                 @db.Text()
   terminado             Boolean                 @default(false)
   reparado              Boolean                 @default(false)
