@@ -46,6 +46,7 @@ export class DispositivosService {
     await this.prisma.bitacora.create({
       data: {
         imei_dispositivo: dispositivo.imei,
+        fecha_recibido: new Date(),
       },
     });
 
