@@ -88,7 +88,7 @@ export class BitacorasService {
 
   createBitacora(data: Prisma.BitacoraCreateInput): Promise<Bitacora> {
     data.fecha_salida = new Date(data.fecha_salida);
-    data.fecha_recibido = new Date(data.fecha_recibido);
+    data.fecha_recibido = new Date();
     return this.prisma.bitacora.create({
       data,
     });
@@ -99,12 +99,9 @@ export class BitacorasService {
     data: Prisma.BitacoraUpdateInput;
   }): Promise<Bitacora> {
     const { where, data } = params;
-    if (
-      typeof data.fecha_salida === 'string' &&
-      typeof data.fecha_recibido === 'string'
-    ) {
+    if (typeof data.fecha_salida === 'string') {
       data.fecha_salida = new Date(data.fecha_salida);
-      data.fecha_recibido = new Date(data.fecha_recibido);
+      data.fecha_recibido = new Date();
 
       return this.prisma.bitacora.update({
         data,

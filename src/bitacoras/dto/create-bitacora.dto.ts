@@ -30,9 +30,6 @@ export class CreateBitacoraDto {
   @IsString()
   notas: string;
 
-  @IsDateString()
-  fecha_recibido: string;
-
   /**Booleano que indica si la reparación está terminada */
   @IsOptional()
   @IsBoolean()
