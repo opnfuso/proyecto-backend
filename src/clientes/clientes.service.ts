@@ -49,11 +49,19 @@ export class ClientesService {
     return result;
   }
 
-  createCliente(data: Prisma.ClienteCreateInput): Promise<Cliente> {
-    data.fecha_nacimiento = new Date(data.fecha_nacimiento);
-    return this.prisma.cliente.create({
-      data,
+  async createCliente(data: Prisma.ClienteCreateInput): Promise<Cliente> {
+    const cliente = await this.prisma.cliente.findFirst({
+      where: { email: data.email },
     });
+
+    if (cliente) {
+      throw new HttpException('Already exists', HttpStatus.CONFLICT);
+    } else {
+      data.fecha_nacimiento = new Date(data.fecha_nacimiento);
+      return this.prisma.cliente.create({
+        data,
+      });
+    }
   }
 
   updateCliente(params: {
