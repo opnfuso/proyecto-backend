@@ -100,7 +100,6 @@ export class BitacorasService {
     const { where, data } = params;
     if (typeof data.fecha_salida === 'string') {
       data.fecha_salida = new Date(data.fecha_salida);
-      data.fecha_recibido = new Date();
 
       return this.prisma.bitacora.update({
         data,
